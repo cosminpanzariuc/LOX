@@ -1,0 +1,8 @@
+#ulListItems {
+    list-style: none;
+}
+
+.isCompleted{
+    color:red;
+    text-decoration: line-through;
+}
