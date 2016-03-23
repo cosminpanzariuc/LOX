@@ -1,0 +1,12 @@
+.error {
+background-color: red;
+}
+.warning {
+background-color: yellow;
+}
+
+.customClass {
+background-color: lightgreen;
+font-size:20px;
+font-weight:bold;
+}

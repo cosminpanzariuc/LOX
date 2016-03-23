@@ -1,0 +1,45 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="src/angular.min.js"></script>
+    <script src="src/main.js"></script>
+    <link rel="stylesheet" href="src/loStyle.css" type="text/css">
+</head>
+
+<body>
+
+    <input type="text" ng-model="data.message" ng-model-options="{debounce: 500}" />
+
+    <div ng-class="data.message"> <!--do_red-->
+        {{data.message}} 
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+
+    <!----------------------------------------------------------------------------------------------------------------------->
+
+    <div ng-controller="FirstCtrl">
+            {{another.text}} <!--Say Hello!-->
+            <input type="text" ng-model="my.text" ng-model-options="{updateOn: 'blur'}"/>
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+
+    <!----------------------------------------------------------------------------------------------------------------------->
+
+    <div ng-controller="SecondCtrl">
+        <input type="text" ng-model="sharing.info" />
+        <h1>{{sharing.info}}</h1>
+       
+    </div>
+
+    <div ng-controller="ThirdCtrl">
+        <input type="text" ng-model="sharing.info" />
+            <h1>{{sharing.info}}</h1>
+            <h2 class="do_red">{{ reversedMessage(sharing.info) }}</h2>
+    </div>
+</body>
+
+</html>

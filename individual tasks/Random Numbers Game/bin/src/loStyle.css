@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+}
+
+#box {
+    position: absolute;
+    width: 308px;
+    height: 308px;
+    border: 3px solid;
+    margin: auto;
+    top: -10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.btn {
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+#btnRandom {
+    position: absolute;
+    font-size: 70px;
+    width: 308px;
+    height: 100px;
+    margin: auto;
+    top: 31%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 3px solid;
+    cursor: pointer;
+}

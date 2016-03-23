@@ -1,0 +1,68 @@
+<html ng-app="myApp">
+
+<head>
+    <link rel="stylesheet" href="src/loStyle.css" type="text/css">
+    <script type="text/javascript" src="src/jquery-1.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript" src="src/angular-route.min.js"></script>
+    <script type="text/javascript" src="src/main.js"></script>
+</head>
+
+<body>
+
+    <div ng-controller="SimpleController as ctrl">
+        {{globalVar}}<br/><br/>
+<!--        <input id="myInput" type="text" ng-model="new.entry" ng-focus="emptyNotification()" />-->
+        <form ng-submit="ctrl.addEntry()">
+            <b>Nume:&nbsp;&nbsp;</b><input autofocus type="text" ng-model = "ctrl.newEntry.nume" ng-blur="ctrl.looseFocus()" placeholder="Enter name ..." required><br/><br/>
+            <b>Varsta:&nbsp;&nbsp;</b><input type="number" ng-model = "ctrl.newEntry.varsta" placeholder="Enter age ..." required><br/><br/>
+            <b>Oras:&nbsp;&nbsp;</b><input type="text" ng-model = "ctrl.newEntry.oras" placeholder="Enter city ..." required><br/><br/>
+            <input type="submit" value="Add"><br/><br/>
+        </form>
+        
+        <b>Cauta: </b><input type="text" ng-model="ctrl.search" ng-paste="ctrl.pasted()" placeholder="Cauta ..."/><br/><br/>
+        <b>Strict: </b><input type="checkbox" ng-model="ctrl.strict"/><br/><br/>
+        <b>Limit to: </b><input type="number" ng-model="ctrl.userLimit" /><br/><br/>
+        
+        <table>
+            <tr>
+                <th>Nr.</th>
+                <th><a href="" ng-click="ctrl.sortByCriteria('nume')">Nume</a></th>
+                <th><a href="" ng-click="ctrl.sortByCriteria('varsta')">Varsta</a></th>
+                <th><a href="" ng-click="ctrl.sortByCriteria('oras')">Oras</a></th>
+                <th> - </th>
+            </tr>
+            
+            <tr ng-repeat="person in filteredPeople = (ctrl.lista | filter:{nume:ctrl.search}:ctrl.strict | orderBy:ctrl.sortProperty:ctrl.reverseSort | limitTo: ctrl.userLimit)" hover click intra="do_yellow" selected="do_green" stopcutcopy dontcopy="do_red">
+                <td>{{$index + 1}}</td>
+                <td>{{person.nume}}</td>
+                <td>{{person.varsta + " ani"}}</td>
+                <td>{{person.oras | uppercase}}</td>
+                <td><a href="" ng-click="ctrl.removeElement(person)">Sterge</a></td>
+            </tr>
+        </table>
+        
+        <p ng-show = "ctrl.search" ng-class="ctrl.search">Numar inregistrari: {{filteredPeople.length}}</p>
+        
+        
+        <p id="x_value">X coord is:</p>
+        <p id=y_value>Ycoord is:</p>
+
+    </div>
+    
+    
+    <div ng-controller="RouteController">
+        <div ng-view></div>
+        <ul>
+            <li><a href="#/firstPage">First Page</a></li>
+            <li><a href="#/secondPage">Second Page</a></li>
+            <li><a href="#/thirdPage">Third Page</a></li>
+            <li><a href="#/" onclick="window.location.reload(false)">Home Page</a></li>
+        </ul>
+        {{anotherGlobal}}
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<html ng-app=''>
+    <head>
+		<script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+		<link rel="stylesheet" href="src/loStyle.css" type="text/css">
+    </head>
+    
+<body> 
+
+
+
+
+	<div ng-controller='HeaderController'>
+		<div ng-class='{error: isError, warning: isWarning}'>{{messageText}}</div>
+		<button ng-click='showError()'>Simulate Error</button>
+		<button ng-click='showWarning()'>Simulate Warning</button>
+	</div>
+	
+	
+	
+	
+</body>
+</html>

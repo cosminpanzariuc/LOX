@@ -1,0 +1,47 @@
+<html ng-app="myApp">
+
+<head>
+    <script src="src/angular.min.js"></script>
+<!--    <script src="src/jquery.tools.min.js"></script>-->
+    <script src="src/jquery-1.11.2.min.js"></script>
+    <script src="src/main.js"></script>
+    <link rel="stylesheet" href="src/loStyle.css" type="text/css">
+</head>
+
+<body>
+    
+    
+    <div ng-controller="EleviCtrl">
+        <b>Cauta dupa nume:</b>
+        <br/>
+        <br/>
+        <input ng-model="cauta.nume" />
+        <br/>
+        <br/>
+        <table>
+            <tr ng-repeat="actor in elevi.lista | orderBy: 'prenume' | limitTo: 10 | filter:cauta">
+                <td>{{actor.nume | uppercase}}</td>
+                <td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td>{{actor.prenume}}</td>
+            </tr>
+        </table>
+        <br/>
+        <br/>
+        <b>Nume Elev:</b>
+        <p>
+            <input type="text" id="fillNume" data-ng-model="elev_nou.nume" autofocus="autofocus">
+        </p>
+
+        <b>Prenume Elev</b>
+        <p>
+            <input type="text" id="fillPrenume" data-ng-model="elev_nou.prenume">
+        </p>
+
+        <button intra="do_red" iese type="button" data-ng-click="adaugaElev()">Add Friend</button>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="src/loStyle.css"/>
+        <script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+    </head>
+    
+	
+	
+	<body>
+	
+	
+	
+
+<div ng-app="scopeExample">
+	<div class="show-scope-demo">
+		<div ng-controller="GreetController">
+		  Hello {{name}}!
+		</div>
+		
+		<div ng-controller="ListController">
+		  <ol>
+			<li ng-repeat="name in names">{{name}} from {{department}}</li>
+		  </ol>
+		</div>
+	</div>
+</div>
+
+
+
+	</body>
+	
+	
+	
+	
+	
+</html>

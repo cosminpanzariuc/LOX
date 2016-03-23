@@ -1,0 +1,30 @@
+.do_yellow{
+    background-color: yellow;
+}
+
+.do_green{
+    background-color: lightgreen;
+}
+
+.do_red{
+    background-color: red;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 7px;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th{
+    background: orange;
+}
+
+a{
+    text-decoration: none;
+}
+

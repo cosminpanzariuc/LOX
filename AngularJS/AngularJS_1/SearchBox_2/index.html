@@ -1,0 +1,27 @@
+<html ng-app="myApp">
+    <head>
+        <link rel="stylesheet" href="src/loStyle.css"/>
+        <script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+    </head>
+    
+<body>  
+
+
+<br/>
+
+ <div ng-controller="AvengersCtrl">
+  <input type="text" ng-model="search.name">  <br/> <br/>
+    <table>
+      <tr ng-repeat="actor in avengers.cast | filter:search">
+        <td>{{ actor.name }}</td>
+        <td>{{ actor.city }}</td>
+      </tr>
+    </table>
+ </div>
+	
+	
+	
+	
+</body>
+</html>

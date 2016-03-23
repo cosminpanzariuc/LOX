@@ -1,0 +1,28 @@
+<html>
+    <head>
+		<script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+		<link rel="stylesheet" href="src/loStyle.css" type="text/css">
+    </head>
+    
+<body> 
+
+
+
+
+<div ng-app="myApp">
+  <div ng-controller="FirstCtrl">
+    <input type="text" ng-model="data.message">
+    <h1>{{ data.message }}</h1>
+  </div>
+  <div ng-controller="SecondCtrl">
+    <input type="text" ng-model="data.message">
+    <h1>{{ data.message | reverse }}</h1>
+  </div>
+</div>
+	
+	
+	
+	
+</body>
+</html>

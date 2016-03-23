@@ -1,0 +1,24 @@
+<html ng-app=''>
+    <head>
+		<script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+		<link rel="stylesheet" href="src/loStyle.css" type="text/css">
+    </head>
+    
+<body ng-controller='CartController'> 
+	<h1>Your Order</h1>
+
+	<div ng-repeat='item in items'>
+		<span>{{item.title}}</span>
+		
+		<input ng-model='item.quantity'>
+		
+		<span>{{item.price | currency}}</span>
+		<span>{{item.price * item.quantity | currency}}</span>
+	
+		<button ng-click="remove($index)">Remove</button>
+	</div>
+
+</body>
+    
+</html>

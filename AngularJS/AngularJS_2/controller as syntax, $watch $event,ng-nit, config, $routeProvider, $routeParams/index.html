@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script src="src/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <script src="src/main.js"></script>
+    <link rel="stylesheet" href="src/loStyle.css" type="text/css">
+</head>
+
+<body ng-app="myApp">
+    <ng-view></ng-view>
+    <div ng-controller = "AppController as room">
+        <button ng-click="room.sayHi()">{{room.buttonTitle}}</button><br/><br/>
+        Write "Hello": <input type="text" ng-model="my.model"/><br/><br/>
+        <button ng-click = "ev=$event">X Position</button>
+        {{ev.pageX}}<br/><br/><br/>
+    </div>
+    
+    Click me to toggle: <input type="checkbox" ng-model="checked">
+    <button ng-disabled="checked" ng-click = "contor = contor+1">Button</button>
+    <p ng-init="contor=0">Numar click-uri: {{contor}}</p>
+    
+    
+    
+</body>
+
+</html>

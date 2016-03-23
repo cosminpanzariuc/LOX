@@ -1,0 +1,30 @@
+<html ng-app="myapp">
+    <head>
+        <link rel="stylesheet" href="src/loStyle.css"/>
+        <script src="src/angular.min.js"></script>
+        <script src="src/main.js"></script>
+    </head>
+    
+    <body ng-controller="myctrl">
+        <br/>
+        <p><b>Search:</b> <input type="text" data-ng-model = "filter.name"></p>
+        <br/>
+        <ul>
+            <li data-ng-repeat = "friend in friends | filter:filter | orderBy:'city'">{{friend.name | uppercase}} - {{friend.city}}</li>
+        </ul> <br/>
+        
+		
+		
+		
+		
+        <b>Friend Name:</b> 
+        <p><input type="text" autofocus = "autofocus" data-ng-model = "newFriend.name" id="fill_name"></p>
+    
+        <b>Friend City:</b>
+        <p><input type="text" data-ng-model = "newFriend.city" id="fill_city"></p>
+        
+        <button type = "button" data-ng-click = "addFriend()" style="mouse.cursor = pointer">Add Friend</button>
+        
+    </body>
+    
+</html>
