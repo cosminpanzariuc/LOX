@@ -1,18 +1,11 @@
-//$(document).ready(init);
-
-//function init() {
-//    var toDoItems = new ToDoItems([
-//        {title: "To Do Item 1"},
-//        {title: "To Do Item 2"},
-//        {title: "To Do Item 3"}
-//    ]);
+require(["collection/todoitems", "view/todoitemsview"], function(ToDoItems, ToDoItemsView){
     
     var toDoItems = new ToDoItems();
     toDoItems.fetch();
-    
     var toDoItemsView = new ToDoItemsView({collection: toDoItems});
-    $("body").append(toDoItemsView.render().$el);
+    $("body").append(toDoItemsView.render().$el);  
     
-    
+});
 
-//}
+
+  
