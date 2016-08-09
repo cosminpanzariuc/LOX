@@ -21,35 +21,11 @@
 //divide();
 
 
+//----------------------------------------------------------------
 
 
 
 ///* Closures 1 */
-//var incrementClickCount = function(){
-//    console.log("aici intra o singura data");
-//    return function(){
-//         var clickCount = 0;
-//         return console.log(++clickCount);
-//    }
-//}();
-//incrementClickCount();
-
-
-///* Closures 2 */
-//function addNumbers(firstNumber, secondNumber){
-//    var returnValue = "The result is: "
-//    function add(){
-//        return returnValue + (firstNumber + secondNumber);
-//    }
-//    return add;
-//}
-//var myFunc = addNumbers(10, 20);
-//console.log(myFunc);
-//var result = myFunc();
-//document.write(result);
-
-
-
 //function greet(whattosay){
 //    return function(name){
 //        console.log(whattosay + " " + name);
@@ -58,8 +34,23 @@
 //var sayHi = greet("Hi");
 //sayHi("Tony");
 
+//----------------------------------------------------------------
 
+///* Closures 2 */
+//var incrementClickCount = function(){
+//    console.log("aici intra o singura data");
+//    var clickCount = 0;
+//    return function(){
+//         return console.log(clickCount++);
+//    }
+//}();
+//incrementClickCount();
+//incrementClickCount();
+//incrementClickCount();
 
+//----------------------------------------------------------------
+
+///* Closures 3 */
 //function buildFunctions(){
 //    var arr = [];
 //    for(var i=0; i<3; i++){
@@ -75,6 +66,7 @@
 //fs[1]();
 //fs[2]();
 
+
 //function buildFunctions() {
 //    var arr = [];
 //    for (var i = 0; i < 3; i++) {
@@ -82,7 +74,9 @@
 //            (function (j) {
 //                return function () {
 //                    console.log(j);
-//                };
+//                }
+//
+//
 //            })(i));
 //    }
 //    return arr;
@@ -93,6 +87,8 @@
 //fs[1]();
 //fs[2]();
 
+
+//----------------------------------------------------------------
 
 
 ////Properties in JavaScript - Read/Write properties - Read Only properties, Restrictions
@@ -128,7 +124,7 @@
 //console.log(employee.name + " " + employee.age);
 
 
-
+//----------------------------------------------------------------
 
 
 ////Static Members
@@ -162,7 +158,7 @@
 //console.log("We have created " + Shape.ShowCount() + " shapes."); //se apeleaza cu numele constructorului
 
 
-
+//----------------------------------------------------------------
 
 
 ////Inheritance
@@ -191,7 +187,7 @@
 //console.log("pe.salary " + pe.hasOwnProperty("salary"));
 
 
-
+//----------------------------------------------------------------
 
 
 
@@ -216,7 +212,7 @@
 //var test = new Shape();
 
 
-
+//----------------------------------------------------------------
 
 
 
@@ -250,6 +246,7 @@
 //});
 
 
+//----------------------------------------------------------------
 
 
 ////Creating custom Pseudo-Class Selector
@@ -264,6 +261,7 @@
 //    });
 
 
+//----------------------------------------------------------------
 
 
 ////The Inheritance Pattern
@@ -288,7 +286,7 @@
 //var water = new Beverage("water", "cold");
 //var cofee = new Cofee("bold dark roast");
 
-
+//----------------------------------------------------------------
 
 
 ////Mixins
@@ -322,7 +320,7 @@
 //var fido = new Dog("Fido");
 
 
-
+//----------------------------------------------------------------
 
 
 ////Module Pattern
@@ -357,7 +355,7 @@
 //}());
 
 
-
+//----------------------------------------------------------------
 
 ////Singleton Pattern
 //var dom = (function(){
@@ -386,6 +384,7 @@
 //}());
 
 
+//----------------------------------------------------------------
 
 ////Factory Pattern
 //function makeGladiator(name, attack, defense, hitPoints){
@@ -417,6 +416,8 @@
 //var john = makeGladiator("John", 12, 10, 12);
 
 
+//----------------------------------------------------------------
+
 
 ////Constructor Pattern / Dynamic Prototype (inner method)
 //function Gladiator(name, attack, defense, hitPoints) {
@@ -432,3 +433,50 @@
 //}
 //var jesse = new Gladiator("Jesse", 10, 12, 10);
 //var john = new Gladiator("John", 12, 10, 12);
+
+//----------------------------------------------------------------
+
+
+////Call, Bind, Apply
+//var person = {
+//    firstname: 'John',
+//    lastname: 'Doe',
+//    getFullName: function() {
+//        var fullname = this.firstname + ' ' + this.lastname;
+//        return fullname;
+//    }
+//}
+//
+//var logName = function(lang1, lang2) {
+//    console.log('Logged: ' + this.getFullName());
+//    console.log('Arguments: ' + lang1 + ' ' + lang2);
+//    console.log('-----------');
+//}
+//
+//var logPersonName = logName.bind(person);
+//logPersonName('en', 'ro');
+//logName.call(person, 'en', 'fr');
+//logName.apply(person, ['en', 'gr']);
+//
+//// function borrowing
+//var person2 = {
+//    firstname: 'Jane',
+//    lastname: 'Doe'
+//}
+//console.log(person.getFullName.apply(person2));
+//
+//// function currying
+//function multiply(a, b) {
+//    return a*b;   
+//}
+//
+//var multipleByTwo = multiply.bind(this, 2);
+//console.log(multipleByTwo(4));
+//
+//var multipleByThree = multiply.bind(this, 3);
+//console.log(multipleByThree(4));
+
+//----------------------------------------------------------------
+
+
+
