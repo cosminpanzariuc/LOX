@@ -357,31 +357,33 @@
 
 //----------------------------------------------------------------
 
-////Singleton Pattern
-//var dom = (function(){
-//    var _counter = 0;
+//Singleton Pattern
+//var Singleton = (function () {
 //    var instance;
-//
-//    function generateId(){
-//        return "customId" + _counter++;
+// 
+//    function createInstance() {
+//        var object = new Object("I am the instance");
+//        return object;
 //    }
-//    function create(tagName, id){
-//        var el = document.createElement(tagName);
-//        el.id = id || generateId();
-//        return el;
-//    }
-//    function createInstance(){
-//        return{
-//            generteId: generateId,
-//            create: create
+// 
+//    return {
+//        getInstance: function () {
+//            if (!instance) {
+//                instance = createInstance();
+//            }
+//            return instance;
 //        }
-//    }
-//    return{
-//        getInstance: function(){
-//            return instance || (instance = createInstance());
-//        }
-//    }
-//}());
+//    };
+//})();
+// 
+//function run() {
+// 
+//    var instance1 = Singleton.getInstance();
+//    var instance2 = Singleton.getInstance();
+// 
+//    alert("Same instance? " + (instance1 === instance2));  
+//}
+//run();
 
 
 //----------------------------------------------------------------
