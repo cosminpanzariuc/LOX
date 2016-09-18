@@ -263,6 +263,33 @@
 
 //----------------------------------------------------------------
 
+////Pure Prototypal Inheritance
+//var person = {
+//    firstName: "Default",
+//    lastName: "Default",
+//    getFullName: function(){
+//        return this.firstName + " " + this.lastName;
+//    }
+//}
+//
+//var john = {
+//    firstName: "John",
+//    lastName: "Doe",
+//}
+//
+////john.__proto__ = person;
+//console.log(person.getFullName.call(john));
+//
+//
+//john = Object.create(person);
+//john.firstName = "John",
+//john.lastName = "Doe"
+//for(prop in john){
+//    console.log(prop + ": " + john[prop]);
+//}
+
+
+//----------------------------------------------------------------
 
 ////The Inheritance Pattern
 //function Beverage(name, temperature){
@@ -270,11 +297,11 @@
 //    this.temperature = temperature;
 //}
 //Beverage.prototype.drink = function(){
-//    console.log("I'm drinking " + this.name);
+//    console.log("I'm drinking " + this.temperature + " " + this.name);
 //}
 //
 //function Cofee(type){
-//    Beverage.call(this, "cofee", "HOOOOOOOOOT");
+//    Beverage.call(this, "coFee", "HOOOOOOOOOT");
 //    this.type = type;
 //}
 //Cofee.prototype = Object.create(Beverage.prototype);
@@ -283,7 +310,7 @@
 //    console.log("Sipping some awesome " + this.temperature + " " + this.type + " " + this.name);
 //}
 //
-//var water = new Beverage("water", "cold");
+//var water = new Beverage("water", "COLD");
 //var cofee = new Cofee("bold dark roast");
 
 //----------------------------------------------------------------
@@ -479,6 +506,4 @@
 //console.log(multipleByThree(4));
 
 //----------------------------------------------------------------
-
-
 
