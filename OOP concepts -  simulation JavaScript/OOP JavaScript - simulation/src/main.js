@@ -161,36 +161,6 @@
 //----------------------------------------------------------------
 
 
-////Inheritance
-//var Employee = function(name){
-//    this.name = name;
-//}
-//Employee.prototype.getName = function(){
-//    return this.name;
-//}
-//
-//var PermanentEmployee = function(salary){
-//    this.salary = salary;
-//}
-//
-//var employee = new Employee("Cosmin");
-//PermanentEmployee.prototype = employee; //PermanentEmployee il va mosteni pe employee
-////PermanentEmployee.prototype = Object.create(Employee.prototype); //PermanentEmployee il va mosteni pe Employee
-//
-//var pe = new PermanentEmployee(5000);
-//console.log(pe.getName() + " " + pe.salary);
-//console.log(pe instanceof Employee);
-//console.log(pe instanceof PermanentEmployee);
-//console.log("employee.name " + employee.hasOwnProperty("name"));
-//console.log("employee.salary " + employee.hasOwnProperty("salary"));
-//console.log("pe.name " + pe.hasOwnProperty("name"));
-//console.log("pe.salary " + pe.hasOwnProperty("salary"));
-
-
-//----------------------------------------------------------------
-
-
-
 ////Abstract classes
 //var Shape = function(){
 //    this.shapeName = "none";
@@ -213,7 +183,6 @@
 
 
 //----------------------------------------------------------------
-
 
 
 ////Polymorphism
@@ -263,6 +232,59 @@
 
 //----------------------------------------------------------------
 
+
+////Pseudoclassical inheritance
+//var extendObj = function(childObj, parentObj) {
+//    //childObj.prototype = parentObj.prototype;
+//    //childObj.prototype = Object.create(parentObj.prototype);
+//    
+//    var tmpObj = function () {};
+//    tmpObj.prototype = parentObj.prototype;
+//    childObj.prototype = new tmpObj();
+//    childObj.prototype.constructor = childObj;
+//};
+//
+//// base human object
+//var Human = function() {};
+//// inhertiable attributes / methods
+//Human.prototype = {
+//    name: '',
+//    gender: '',
+//    planetOfBirth: 'Earth',
+//    sayGender: function () {
+//        console.log(this.name + ' says my gender is ' + this.gender);
+//    },
+//    sayPlanet: function () {
+//        console.log(this.name + ' was born on ' + this.planetOfBirth);
+//    }
+//};
+//
+//var Male = function (name) {
+//    this.gender = 'Male';
+//    this.name = 'David';
+//};
+//extendObj(Male, Human);
+//
+//var Female = function (name) {
+//    this.name = name;
+//    this.gender = 'Female';
+//};
+//extendObj(Female, Human);
+//
+//var david = new Male('David');
+//var jane = new Female('Jane');
+//
+//david.sayGender(); // David says my gender is Male
+//jane.sayGender(); // Jane says my gender is Female
+//
+//Male.prototype.planetOfBirth = 'Mars';
+//david.sayPlanet(); // David was born on Mars
+//jane.sayPlanet(); // Jane was born on Earth
+
+
+//----------------------------------------------------------------
+
+
 ////Pure Prototypal Inheritance
 //var person = {
 //    firstName: "Default",
@@ -291,6 +313,37 @@
 
 //----------------------------------------------------------------
 
+
+
+////Inheritance
+//var Employee = function(name){
+//    this.name = name;
+//}
+//Employee.prototype.getName = function(){
+//    return this.name;
+//}
+//
+//var PermanentEmployee = function(salary){
+//    this.salary = salary;
+//}
+//
+//var employee = new Employee("Cosmin");
+//PermanentEmployee.prototype = employee; //PermanentEmployee il va mosteni pe employee
+////PermanentEmployee.prototype = Object.create(Employee.prototype); //PermanentEmployee il va mosteni pe Employee
+//
+//var pe = new PermanentEmployee(5000);
+//console.log(pe.getName() + " " + pe.salary);
+//console.log(pe instanceof Employee);
+//console.log(pe instanceof PermanentEmployee);
+//console.log("employee.name " + employee.hasOwnProperty("name"));
+//console.log("employee.salary " + employee.hasOwnProperty("salary"));
+//console.log("pe.name " + pe.hasOwnProperty("name"));
+//console.log("pe.salary " + pe.hasOwnProperty("salary"));
+
+
+//----------------------------------------------------------------
+
+
 ////The Inheritance Pattern
 //function Beverage(name, temperature){
 //    this.name = name;
@@ -301,8 +354,8 @@
 //}
 //
 //function Cofee(type){
-//    Beverage.call(this, "coFee", "HOOOOOOOOOT");
 //    this.type = type;
+//    Beverage.call(this, "coFee", "HOOOOOOOOOT");
 //}
 //Cofee.prototype = Object.create(Beverage.prototype);
 //
@@ -312,6 +365,8 @@
 //
 //var water = new Beverage("water", "COLD");
 //var cofee = new Cofee("bold dark roast");
+
+
 
 //----------------------------------------------------------------
 
@@ -380,6 +435,39 @@
 //        create: create
 //    }
 //}());
+
+
+
+//var Zoo = (function() { 
+//  var getBarkStyle = function(isHowler) {
+//    return isHowler ? 'woooooow!': 'woof, woof!';
+//  }; 
+//  
+//  var Dog = function(name, breed) {
+//    this.bark = function() {
+//      return name + ': ' + getBarkStyle(breed === 'husky');
+//    };
+//  };
+//  
+//  var Wolf = function(name) {
+//    this.bark = function() {
+//      return name + ': ' + getBarkStyle(true);
+//    };
+//  };
+//  
+//  return {
+//    Dog: Dog,
+//    Wolf: Wolf
+//  };
+//})();
+//
+//
+//var myDog = new Zoo.Dog('Sherlock', 'beagle');
+//console.log(myDog.bark()); // Sherlock: woof, woof!
+//
+//var myWolf = new Zoo.Wolf('Werewolf');
+//console.log(myWolf.bark()); // Werewolf: woooooow!
+
 
 
 //----------------------------------------------------------------
@@ -542,3 +630,6 @@
 //};
 //var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
 //console.log(arr5);
+
+
+
