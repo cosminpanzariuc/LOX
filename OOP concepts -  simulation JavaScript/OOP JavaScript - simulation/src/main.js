@@ -1,3 +1,15 @@
+////Creating custom Pseudo-Class Selector
+//    $.extend($.expr[":"], {
+//        isRed: function (elem) {
+//            return $(elem).hasClass("red");
+//        }
+//    });
+//
+//    $("p:isRed").on("click", function() {
+//        alert("The paragraph has red color!!!");
+//    });
+
+//----------------------------------------------------------------
 
 ////Error handling
 //function divide() {
@@ -20,10 +32,7 @@
 //}
 //divide();
 
-
 //----------------------------------------------------------------
-
-
 
 ///* Closures 1 */
 //function greet(whattosay){
@@ -90,8 +99,35 @@
 
 //----------------------------------------------------------------
 
+////Properties in JavaScript - Read Only properties, Restrictions
+//var myObject = {};
+//Object.defineProperty(myObject, "FAVOURITE_NUMBER", {
+//    value: 42,
+//    writable: true,
+//    configurable: true
+//});
+//
+//Object.preventExtensions(myObject);
+////Seal = preventExtensions + configurable=false (for all object's properties)
+////Freeze = Seal + writable=false (for all object's properties)
 
-////Properties in JavaScript - Read/Write properties - Read Only properties, Restrictions
+//----------------------------------------------------------------
+
+//var anotherObject = {
+//   get a() {
+//       return this._a_;
+//   },
+//    
+//    set a(val){
+//        this._a_ = val * 2;
+//    }
+//};
+//
+//anotherObject.a = 2;
+//console.log(anotherObject.a );
+
+
+//----------------------------------------------------------------
 //function Employee(name, age) {
 //    var _name = name;
 //    var _age = age;
@@ -123,9 +159,7 @@
 //employee.name = "Albert";
 //console.log(employee.name + " " + employee.age);
 
-
 //----------------------------------------------------------------
-
 
 ////Static Members
 //function Circle(radius){
@@ -139,7 +173,6 @@
 //
 //var circle = new Circle(10);
 //console.log("Circle area is: " + circle.CalculateArea()); //(metoda "CalculateArea" nu este statica) - deci va fi apelata cu numele instantei
-//
 //
 //
 //function Shape(shapeName){
@@ -157,9 +190,7 @@
 //var shape4 = new Shape("Square");
 //console.log("We have created " + Shape.ShowCount() + " shapes."); //se apeleaza cu numele constructorului
 
-
 //----------------------------------------------------------------
-
 
 ////Abstract classes
 //var Shape = function(){
@@ -181,9 +212,7 @@
 //console.log(circle instanceof Shape);
 //var test = new Shape();
 
-
 //----------------------------------------------------------------
-
 
 ////Polymorphism
 //var Shape = function(){ }
@@ -214,24 +243,7 @@
 //    console.log(shape.draw());
 //});
 
-
 //----------------------------------------------------------------
-
-
-////Creating custom Pseudo-Class Selector
-//    $.extend($.expr[":"], {
-//        isRed: function (elem) {
-//            return $(elem).hasClass("red");
-//        }
-//    });
-//
-//    $("p:isRed").on("click", function() {
-//        alert("The paragraph has red color!!!");
-//    });
-
-
-//----------------------------------------------------------------
-
 
 ////Pseudoclassical inheritance
 //var extendObj = function(childObj, parentObj) {
@@ -266,8 +278,8 @@
 //extendObj(Male, Human);
 //
 //var Female = function (name) {
-//    this.name = name;
 //    this.gender = 'Female';
+//    this.name = name;
 //};
 //extendObj(Female, Human);
 //
@@ -283,7 +295,6 @@
 
 
 //----------------------------------------------------------------
-
 
 ////Pure Prototypal Inheritance
 //var person = {
@@ -310,10 +321,7 @@
 //    console.log(prop + ": " + john[prop]);
 //}
 
-
 //----------------------------------------------------------------
-
-
 
 ////Inheritance
 //var Employee = function(name){
@@ -340,9 +348,7 @@
 //console.log("pe.name " + pe.hasOwnProperty("name"));
 //console.log("pe.salary " + pe.hasOwnProperty("salary"));
 
-
 //----------------------------------------------------------------
-
 
 ////The Inheritance Pattern
 //function Beverage(name, temperature){
@@ -366,10 +372,7 @@
 //var water = new Beverage("water", "COLD");
 //var cofee = new Cofee("bold dark roast");
 
-
-
 //----------------------------------------------------------------
-
 
 ////Mixins
 //function Person(name) {
@@ -401,9 +404,7 @@
 //var john = new Person("John Doe");
 //var fido = new Dog("Fido");
 
-
 //----------------------------------------------------------------
-
 
 ////Module Pattern
 //var dom = (function(){
@@ -436,7 +437,7 @@
 //    }
 //}());
 
-
+//----------------------------------------------------------------
 
 //var Zoo = (function() { 
 //  var getBarkStyle = function(isHowler) {
@@ -468,8 +469,6 @@
 //var myWolf = new Zoo.Wolf('Werewolf');
 //console.log(myWolf.bark()); // Werewolf: woooooow!
 
-
-
 //----------------------------------------------------------------
 
 //Singleton Pattern
@@ -499,7 +498,6 @@
 //    alert("Same instance? " + (instance1 === instance2));  
 //}
 //run();
-
 
 //----------------------------------------------------------------
 
@@ -532,9 +530,7 @@
 //var jesse = makeGladiator("Jesse", 10, 12, 10);
 //var john = makeGladiator("John", 12, 10, 12);
 
-
 //----------------------------------------------------------------
-
 
 ////Constructor Pattern / Dynamic Prototype (inner method)
 //function Gladiator(name, attack, defense, hitPoints) {
@@ -552,7 +548,6 @@
 //var john = new Gladiator("John", 12, 10, 12);
 
 //----------------------------------------------------------------
-
 
 ////Call, Bind, Apply
 //function foo(something){
@@ -572,8 +567,8 @@
 //
 //var bar = bind(foo, obj);
 //var b = bar(2);
-//----------------------------------------------------------------
 
+//----------------------------------------------------------------
 
 //var person = {
 //    firstname: 'John',
@@ -615,7 +610,6 @@
 
 //----------------------------------------------------------------
 
-
 ////Functional Programming
 //var arr1 = [1, 2, 3];
 //console.log(arr1);
@@ -650,4 +644,6 @@
 //};
 //var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
 //console.log(arr5);
+
+
 
