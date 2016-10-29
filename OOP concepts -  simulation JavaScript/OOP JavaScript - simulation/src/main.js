@@ -245,9 +245,42 @@
 
 //----------------------------------------------------------------
 
+////Explicit Mixins
+//function mixin(sourceObj, targetObj) {
+//    for (var key in sourceObj) {
+//        if (!(key in targetObj)) {
+//            targetObj[key] = sourceObj[key]
+//        }
+//    }
+//    return targetObj;
+//}
+//
+//var vehicle = {
+//    engines: 1,
+//    ignition: function () {
+//        console.log("Turning on my engine!");
+//    },
+//    drive: function () {
+//        this.ignition();
+//        console.log("Steering and moving forward!");
+//    }
+//}
+//
+//var car = mixin(vehicle, {
+//    wheels: 4,
+//    drive: function () {
+//        vehicle.drive.call(this);
+//        console.log("Rolling on all " + this.wheels + " wheels!");
+//    }
+//});
+//
+//console.log(car.drive());
+
+//----------------------------------------------------------------
+
 ////Pseudoclassical inheritance
 //var extendObj = function(childObj, parentObj) {
-//    //childObj.prototype = parentObj.prototype;
+//    //childObj.prototype = parentObj.prototype; // Not OK
 //    //childObj.prototype = Object.create(parentObj.prototype);
 //    
 //    var tmpObj = function () {};
@@ -256,9 +289,7 @@
 //    childObj.prototype.constructor = childObj;
 //};
 //
-//// base human object
 //var Human = function() {};
-//// inhertiable attributes / methods
 //Human.prototype = {
 //    name: '',
 //    gender: '',
@@ -292,7 +323,6 @@
 //Male.prototype.planetOfBirth = 'Mars';
 //david.sayPlanet(); // David was born on Mars
 //jane.sayPlanet(); // Jane was born on Earth
-
 
 //----------------------------------------------------------------
 
@@ -374,7 +404,7 @@
 
 //----------------------------------------------------------------
 
-////Mixins
+////Mixins jQuery
 //function Person(name) {
 //    this.name = name;
 //}
