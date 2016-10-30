@@ -287,6 +287,7 @@
 //    tmpObj.prototype = parentObj.prototype;
 //    childObj.prototype = new tmpObj();
 //    childObj.prototype.constructor = childObj;
+//    
 //};
 //
 //var Human = function() {};
@@ -401,6 +402,10 @@
 //
 //var water = new Beverage("water", "COLD");
 //var cofee = new Cofee("bold dark roast");
+//console.log(cofee instanceof Cofee);
+//console.log(Cofee.prototype.isPrototypeOf(cofee));
+//console.log(Object.getPrototypeOf(cofee) === Cofee.prototype);
+//console.log(Object.getPrototypeOf(cofee));
 
 //----------------------------------------------------------------
 
