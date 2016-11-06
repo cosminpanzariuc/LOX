@@ -748,17 +748,3 @@
 //var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
 //console.log(arr5);
 
-
-var a = 2;
-
-function foo(){
-    console.log(a);
-}
-
-function bar(){
-    var a=3;
-    foo();
-}
-
-
-bar();
