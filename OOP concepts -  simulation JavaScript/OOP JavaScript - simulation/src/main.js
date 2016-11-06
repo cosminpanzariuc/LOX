@@ -60,6 +60,29 @@
 //----------------------------------------------------------------
 
 ///* Closures 3 */
+//for(var i=1; i<=5; i++){
+//    (function(){
+//        var j =i;
+//        setTimeout(function timer(){
+//            console.log(j);
+//        }, j*1000);
+//    })();
+//}
+
+//----------------------------------------------------------------
+
+///* Closures 4 */
+//for(var i=1; i<=5; i++){
+//    (function(j){
+//        setTimeout(function timer(){
+//            console.log(j);
+//        }, j*1000);
+//    })(i);
+//}
+
+//----------------------------------------------------------------
+
+///* Closures 5 */
 //function buildFunctions(){
 //    var arr = [];
 //    for(var i=0; i<3; i++){
@@ -726,4 +749,16 @@
 //console.log(arr5);
 
 
+var a = 2;
 
+function foo(){
+    console.log(a);
+}
+
+function bar(){
+    var a=3;
+    foo();
+}
+
+
+bar();
