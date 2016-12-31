@@ -62,7 +62,7 @@
 ///* Closures 3 */
 //for(var i=1; i<=5; i++){
 //    (function(){
-//        var j =i;
+//        var j=i;
 //        setTimeout(function timer(){
 //            console.log(j);
 //        }, j*1000);
@@ -151,6 +151,7 @@
 
 
 //----------------------------------------------------------------
+
 //function Employee(name, age) {
 //    var _name = name;
 //    var _age = age;
@@ -168,14 +169,12 @@
 //        }
 //    });
 //
-//
 //    Object.defineProperty(this, "name", {
 //        get: function () {
 //            return _name;
 //        }
 //    });
 //}
-//
 //
 //var employee = new Employee("Cosmin", 29);
 //employee.age = 105;
@@ -190,12 +189,12 @@
 //    Circle.PI = 3.141;
 //
 //    this.CalculateArea = function(){
-//        return Circle.PI * this.radius * this.radius; //camp static (dar metoda nu este statica)
+//        return Circle.PI * this.radius * this.radius; 
 //    }
 //}
 //
 //var circle = new Circle(10);
-//console.log("Circle area is: " + circle.CalculateArea()); //(metoda "CalculateArea" nu este statica) - deci va fi apelata cu numele instantei
+//console.log("Circle area is: " + circle.CalculateArea()); 
 //
 //
 //function Shape(shapeName){
@@ -203,7 +202,7 @@
 //    Shape.counter = ++Shape.counter || 1; //camp static
 //
 //    Shape.ShowCount = function(){//metoda statica
-//        return Shape.counter;
+//        return "We have created " + Shape.counter + " shapes.";
 //    }
 //}
 //
@@ -211,13 +210,12 @@
 //var shape2 = new Shape("Rectangle");
 //var shape3 = new Shape("Triangle");
 //var shape4 = new Shape("Square");
-//console.log("We have created " + Shape.ShowCount() + " shapes."); //se apeleaza cu numele constructorului
+//console.log(Shape.ShowCount()); 
 
 //----------------------------------------------------------------
 
 ////Abstract classes
 //var Shape = function(){
-//    this.shapeName = "none";
 //    throw new Error("Cannot create an instance of an abstract class!!");
 //}
 //Shape.prototype.draw = function(){
@@ -227,7 +225,7 @@
 //var Circle = function(shapeName){
 //    this.shapeName = shapeName;
 //}
-//Circle.prototype = Object.create(Shape.prototype); // Circle va mosteni pe Shape (subclasa: Circle | parinte: Shape)
+//Circle.prototype = Object.create(Shape.prototype);
 //
 //var circle = new Circle("Circle");
 //console.log(circle.draw());
@@ -258,10 +256,7 @@
 //var Triangle = function(){ }
 //Triangle.prototype = Object.create(Shape.prototype);
 //
-//
 //var shapesArr = [new Shape(), new Circle(), new Square(), new Triangle()];
-//
-//
 //shapesArr.forEach(function (shape){
 //    console.log(shape.draw());
 //});
@@ -310,7 +305,6 @@
 //    tmpObj.prototype = parentObj.prototype;
 //    childObj.prototype = new tmpObj();
 //    childObj.prototype.constructor = childObj;
-//    
 //};
 //
 //var Human = function() {};
@@ -390,8 +384,8 @@
 //}
 //
 //var employee = new Employee("Cosmin");
-//PermanentEmployee.prototype = employee; //PermanentEmployee il va mosteni pe employee
-////PermanentEmployee.prototype = Object.create(Employee.prototype); //PermanentEmployee il va mosteni pe Employee
+//PermanentEmployee.prototype = employee; 
+////PermanentEmployee.prototype = Object.create(Employee.prototype);
 //
 //var pe = new PermanentEmployee(5000);
 //console.log(pe.getName() + " " + pe.salary);
@@ -418,17 +412,16 @@
 //    Beverage.call(this, "coFee", "HOOOOOOOOOT");
 //}
 //Cofee.prototype = Object.create(Beverage.prototype);
-//
 //Cofee.prototype.sip = function(){
 //    console.log("Sipping some awesome " + this.temperature + " " + this.type + " " + this.name);
 //}
 //
 //var water = new Beverage("water", "COLD");
 //var cofee = new Cofee("bold dark roast");
-//console.log(cofee instanceof Cofee);
+//cofee.sip();
+//cofee.drink();
 //console.log(Cofee.prototype.isPrototypeOf(cofee));
 //console.log(Object.getPrototypeOf(cofee) === Cofee.prototype);
-//console.log(Object.getPrototypeOf(cofee));
 
 //----------------------------------------------------------------
 
@@ -452,8 +445,7 @@
 //var b2 = new Bar("b2");
 //b1.speak();
 //b2.speak();
-//
-//
+
 ////Mental Models Compared - OLOO Style
 //var Foo = {
 //    init: function(who){
