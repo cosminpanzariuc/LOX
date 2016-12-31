@@ -6,12 +6,12 @@ import React from 'react';
 import VideoListItem from './video_list_item';
 
 const VideoList = (props) => {
-    const VideoItems = props.vid.map((video) => {
+    const VideoItems = props.video_list.map((video) => {
         return(
             <VideoListItem
                 onVideoSelect = {props.onVideoSelect}
                 key={video.etag}
-                videoo={video}/>
+                videoItem={video}/>
         );
     });
 
