@@ -8,23 +8,47 @@ class SearchBar extends Component{
 
     constructor(props){
         super(props);
-        this.state = {term: ''};
+        this.state = {
+            term: '',
+            age: props.initialAge,
+            homeLink: "CHANGED LINK"
+        };
+    }
+
+    onChangeLink(){
+        this.props.changeLink(this.state.homeLink);
     }
 
     render(){
         return (
             <div className="search-bar">
+                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Make me older</button>
+                <p>Your age is {this.state.age}</p>
+
                 {this.props.children}
+
                 <input
                     placeholder="Search..."
                     value = {this.state.term}
                     onChange={(event) => this.onInputChange(event.target.value)} />
-                <hr/>
+
+                <div>
+                    <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
+                </div>
+
+                <div>
+                    <button onClick={() => this.onChangeLink()} className="btn btn-primary">Change Header Link</button>
+                </div>
+
             </div>
         );
     }
 
-
+    onMakeOlder(){
+       this.setState({
+           age: this.state.age + 3
+       });
+    }
     onInputChange(term){
         this.setState({term:term});
         this.props.onSearchTermChange(term);
