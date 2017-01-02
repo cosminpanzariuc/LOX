@@ -11,12 +11,20 @@ class SearchBar extends Component{
         this.state = {
             term: '',
             age: props.initialAge,
-            homeLink: "CHANGED LINK"
+            homeLink: props.initialLinkName
         };
     }
 
     onChangeLink(){
         this.props.changeLink(this.state.homeLink);
+    }
+
+    onHandleChange(event){
+        this.setState({
+            homeLink: event.target.value
+        }, () => {
+            this.onChangeLink();
+        });
     }
 
     render(){
@@ -36,6 +44,12 @@ class SearchBar extends Component{
                     <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
                 </div>
 
+                <hr/>
+
+                <input type="text" value={this.state.homeLink} onChange={(event) => {
+                    this.onHandleChange(event);
+                }}/>
+                
                 <div>
                     <button onClick={() => this.onChangeLink()} className="btn btn-primary">Change Header Link</button>
                 </div>

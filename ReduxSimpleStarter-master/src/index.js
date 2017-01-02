@@ -28,7 +28,7 @@ class App extends Component {
         YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({
                 videos:videos,
-                selectedVideo: videos[0],
+                selectedVideo: videos[0]
             });
         });
     }
@@ -45,7 +45,6 @@ class App extends Component {
 
     render(){
         const videoSearch = _.debounce((term) => this.videoSearch(term), 300);
-
         return (
             <div>
                 <Header homeLink={this.state.homeLink}/>
@@ -54,7 +53,8 @@ class App extends Component {
                     onSearchTermChange = {videoSearch}
                     initialAge = {27}
                     greet = {this.onGreet}
-                    changeLink={(newName) => this.onChangeLinkName(newName)}>
+                    changeLink={(newName) => this.onChangeLinkName(newName)}
+                    initialLinkName = {this.state.homeLink}>
                     <p>Search your video...</p>
                 </SearchBar>
 
