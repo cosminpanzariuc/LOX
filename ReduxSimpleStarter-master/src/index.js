@@ -19,7 +19,8 @@ class App extends Component {
         this.state = {
             videos: [],
             selectedVideo: null,
-            homeLink: "HOME"
+            homeLink: "HOME",
+            searchMounted: true
         };
         this.videoSearch('');
     }
@@ -43,20 +44,35 @@ class App extends Component {
         alert("Hello!");
     }
 
+    onChangeSearchMounted(){
+        this.setState({
+            searchMounted: !this.state.searchMounted
+        });
+    }
+
     render(){
         const videoSearch = _.debounce((term) => this.videoSearch(term), 300);
+
+        let searchComponent = "";
+        if(this.state.searchMounted){
+            searchComponent = (<SearchBar
+                onSearchTermChange = {videoSearch}
+                initialAge = {27}
+                greet = {this.onGreet}
+                changeLink={(newName) => this.onChangeLinkName(newName)}
+                initialLinkName = {this.state.homeLink}>
+                <p>Search your video...</p>
+            </SearchBar>);
+        }
+
         return (
             <div>
                 <Header homeLink={this.state.homeLink}/>
 
-                <SearchBar
-                    onSearchTermChange = {videoSearch}
-                    initialAge = {27}
-                    greet = {this.onGreet}
-                    changeLink={(newName) => this.onChangeLinkName(newName)}
-                    initialLinkName = {this.state.homeLink}>
-                    <p>Search your video...</p>
-                </SearchBar>
+                <div>
+                    {searchComponent}
+                    <button onClick={this.onChangeSearchMounted.bind(this)} className="btn btn-primary">(Un)Mount Search Component</button>
+                </div>
 
                 <VideoDetail
                     video = {this.state.selectedVideo}
@@ -66,6 +82,7 @@ class App extends Component {
                     onVideoSelect={(selectedVideo) => this.setState({selectedVideo:selectedVideo})}
                     video_list={this.state.videos}
                 />
+
             </div>
         );
     }

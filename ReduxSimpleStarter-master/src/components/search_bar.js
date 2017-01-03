@@ -13,6 +13,30 @@ class SearchBar extends Component{
             age: props.initialAge,
             homeLink: props.initialLinkName
         };
+        console.log("Constructor");
+    }
+
+    componentWillMount(){
+    console.log("Component will mount - Immediatly before initial rendering");
+    }
+    componentDidMount(){
+        console.log("Component did mount - Immediatly after initial rendering");
+    }
+    componentWillReceiveProps(nextProps){
+        console.log("When compoment receives new props", nextProps);
+    }
+    shouldComponentUpdate(nextProps, nextState){
+        console.log("Should component update? Before rendering, after receiving new props/state", nextProps, nextState);
+        return true;
+    }
+    componentWillUpdate(nextProps, nextState){
+        console.log("Component will update! Before rendering, after receiving new props/state", nextProps, nextState);
+    }
+    componentDidUpdate(prevProps, prevState){
+        console.log("Component did update! After component's updates are flushed to DOM", prevProps, prevState);
+    }
+    componentWillUnmount(){
+        console.log("Component will unmount - Immediatly before removing component from DOM");
     }
 
     onChangeLink(){
@@ -28,6 +52,7 @@ class SearchBar extends Component{
     }
 
     render(){
+        console.log("Render");
         return (
             <div className="search-bar">
                 <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Make me older</button>
