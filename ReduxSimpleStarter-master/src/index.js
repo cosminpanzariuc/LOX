@@ -67,11 +67,12 @@ class App extends Component {
 
         return (
             <div>
+
                 <Header homeLink={this.state.homeLink}/>
 
                 <div>
                     {searchComponent}
-                    <button onClick={this.onChangeSearchMounted.bind(this)} className="btn btn-primary">(Un)Mount Search Component</button>
+                    <button onClick={() => this.onChangeSearchMounted()} className="btn btn-primary">(Un)Mount Search Component</button>
                 </div>
 
                 <VideoDetail
