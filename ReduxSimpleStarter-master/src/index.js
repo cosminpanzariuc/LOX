@@ -55,14 +55,15 @@ class App extends Component {
 
         let searchComponent = "";
         if(this.state.searchMounted){
-            searchComponent = (<SearchBar
-                onSearchTermChange = {videoSearch}
-                initialAge = {27}
-                greet = {this.onGreet}
-                changeLink={(newName) => this.onChangeLinkName(newName)}
-                initialLinkName = {this.state.homeLink}>
-                <p>Search your video...</p>
-            </SearchBar>);
+            searchComponent = (
+                <SearchBar
+                    onSearchTermChange = {videoSearch}
+                    initialAge = {27}
+                    greet = {this.onGreet}
+                    changeLink={(newName) => this.onChangeLinkName(newName)}
+                    initialLinkName = {this.state.homeLink}>
+                        <p>Search your video...</p>
+                </SearchBar>);
         }
 
         return (
