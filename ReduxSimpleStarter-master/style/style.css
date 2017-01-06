@@ -18,14 +18,46 @@
     border-radius: 4px;
 }
 
-.video-detail{
-    float:left;
+.video-detail {
+    float: left;
 }
 
-.list-group-item {
-    cursor: pointer;
+.container {
+    margin: 10px
 }
 
-.list-group-item:hover {
-    background-color: #eee;
+.container button.create {
+    margin-bottom: 8px
+}
+
+.container .board {
+    background-color: #b9def0;
+    padding: 4px
+}
+
+.container .board .commentContainer {
+    background: #eee;
+    border: 1px solid #ccc;
+    margin: 8px;
+    padding: 8px;
+    display: block;
+}
+
+.container .board .commentContainer .comment {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+.container .board .commentContainer button {
+    margin-right: 6px
+}
+
+.container .board .commentContainer textarea {
+    display: block;
+    margin-bottom: 10px
+}
+
+.btn{
+    cursor: pointer
 }

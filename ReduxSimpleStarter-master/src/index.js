@@ -10,6 +10,7 @@ import SearchBar from './components/search_bar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import Board from './components/board';
 
 const API_KEY = "AIzaSyCBFqR7YNGbyZMrvD7EZtAxForkNCuD3jk";
 
@@ -62,7 +63,7 @@ class App extends Component {
                     greet = {this.onGreet}
                     changeLink={(newName) => this.onChangeLinkName(newName)}
                     initialLinkName = {this.state.homeLink}>
-                        <p>Search your video...</p>
+                    <p>Search your video...</p>
                 </SearchBar>);
         }
 
@@ -76,14 +77,14 @@ class App extends Component {
                     <button onClick={() => this.onChangeSearchMounted()} className="btn btn-primary">(Un)Mount Search Component</button>
                 </div>
 
-                <VideoDetail
-                    video = {this.state.selectedVideo}
-                />
+                <VideoDetail video = {this.state.selectedVideo}/>
 
                 <VideoList
                     onVideoSelect={(selectedVideo) => this.setState({selectedVideo:selectedVideo})}
                     video_list={this.state.videos}
                 />
+
+                <Board />
 
             </div>
         );
