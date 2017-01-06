@@ -19,18 +19,6 @@ class Board extends Component {
         };
     }
 
-    eachComment(text, i) {
-        return (
-            <Comment
-                key={i}
-                index={i}
-                updateCommentText={(newText, i)=>{this.updateComment(newText, i)}}
-                deleteFromBoard={()=>{this.removeComment()}}>
-                {text}
-            </Comment>
-        );
-    }
-
     removeComment(i){
         let arr = this.state.comments;
         arr.splice(i, 1);
@@ -53,7 +41,18 @@ class Board extends Component {
         this.setState({
             comments:arr
         });
+    }
 
+    eachComment(text, i) {
+        return (
+            <Comment
+                key={i}
+                index={i}
+                updateCommentText={(newText, i)=>{this.updateComment(newText, i)}}
+                deleteFromBoard={(item)=>{this.removeComment(item)}}>
+                {text}
+            </Comment>
+        );
     }
 
     render() {
