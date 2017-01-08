@@ -28,7 +28,7 @@ class Board extends Component {
     }
 
     updateComment(newText, i){
-        var arr = this.state.comments;
+        let arr = this.state.comments;
         arr[i] = newText;
         this.setState({
             comments:arr
