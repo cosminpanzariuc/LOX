@@ -23,10 +23,10 @@ class App extends Component {
             homeLink: "HOME",
             searchMounted: true
         };
-        this.videoSearch('');
+        this.handleVideoSearch('');
     }
 
-    videoSearch(term){
+    handleVideoSearch(term){
         YTSearch({key: API_KEY, term: term}, (videos) => {
             this.setState({
                 videos:videos,
@@ -35,36 +35,37 @@ class App extends Component {
         });
     }
 
-    onChangeLinkName(newName){
+    handleChangeLinkName(newName){
         this.setState({
             homeLink: newName
         });
     }
 
-    onGreet(){
+    handleGreet(){
         alert("Hello!");
     }
 
-    onChangeSearchMounted(){
+    handleChangeSearchMounted(){
         this.setState({
             searchMounted: !this.state.searchMounted
         });
     }
 
     render(){
-        const videoSearch = _.debounce((term) => this.videoSearch(term), 300);
+        const videoSearch = _.debounce((term) => this.handleVideoSearch(term), 300);
 
         let searchComponent = "";
         if(this.state.searchMounted){
             searchComponent = (
                 <SearchBar
-                    onSearchTermChange = {videoSearch}
+                    videoSearch = {videoSearch}
                     initialAge = {27}
-                    greet = {this.onGreet}
-                    changeLink={(newName) => this.onChangeLinkName(newName)}
-                    initialLinkName = {this.state.homeLink}>
-                    <p>Search your video...</p>
-                </SearchBar>);
+                    initialLinkName = {this.state.homeLink}
+                    greet = {this.handleGreet}
+                    changeLink={(newName) => this.handleChangeLinkName(newName)}>
+                        <p>Search your video...</p>
+                </SearchBar>
+            );
         }
 
         return (
@@ -74,14 +75,14 @@ class App extends Component {
 
                 <div>
                     {searchComponent}
-                    <button onClick={() => this.onChangeSearchMounted()} className="btn btn-primary">(Un)Mount Search Component</button>
+                    <button onClick={() => this.handleChangeSearchMounted()} className="btn btn-primary">(Un)Mount Search Component</button>
                 </div>
 
-                <VideoDetail video = {this.state.selectedVideo}/>
+                <VideoDetail currentVideo = {this.state.selectedVideo}/>
 
                 <VideoList
-                    onVideoSelect={(selectedVideo) => this.setState({selectedVideo:selectedVideo})}
                     video_list={this.state.videos}
+                    handleVideoSelect={(selectedVideo) => this.setState({selectedVideo:selectedVideo})}
                 />
 
                 <Board />

@@ -5,12 +5,13 @@
 import React from 'react';
 
 
-const VideoDetail = ({video}) => {
-    if(!video){
-        return <div>Loading...</div>;
+const VideoDetail = ({currentVideo}) => {
+    // const currentVideo = props.currentVideo;
+    if(!currentVideo){
+        return <div id="centerText">Loading...</div>;
     }
 
-    const videoId = video.id.videoId;
+    const videoId = currentVideo.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
 
     return(
@@ -20,8 +21,8 @@ const VideoDetail = ({video}) => {
             </div>
 
             <div className="details">
-                <div>{video.snippet.title}</div>
-                <div>{video.snippet.description}</div>
+                <b>{currentVideo.snippet.title}</b>
+                <i>{currentVideo.snippet.description}</i>
             </div>
         </div>
     );

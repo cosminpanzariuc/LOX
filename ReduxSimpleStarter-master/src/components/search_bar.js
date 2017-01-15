@@ -9,12 +9,28 @@ class SearchBar extends Component{
     constructor(props){
         super(props);
         this.state = {
-            term: '',
             age: props.initialAge,
             homeLink: props.initialLinkName
         };
-        // console.log("Constructor");
     }
+
+    handleMakeOlder(){
+        this.setState({
+            age: this.state.age + 3
+        });
+    }
+    onVideoSearch(term){
+        this.props.videoSearch(term);
+    }
+
+    onHandleChange(event){
+        this.setState({
+            homeLink: event.target.value
+        }, () => {
+            this.props.changeLink(this.state.homeLink);
+        });
+    }
+
 
     // componentWillMount(){
     // console.log("Component will mount - Immediatly before initial rendering");
@@ -40,56 +56,29 @@ class SearchBar extends Component{
     // }
 
     render(){
+        // console.log("Render");
         return (
             <div className="search-bar">
-                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Make me older</button>
+                <button onClick={() => this.handleMakeOlder()} className="btn btn-primary">Make me older</button>
                 <p>Your age is {this.state.age}</p>
 
                 {this.props.children}
 
-                <input
-                    placeholder="Search..."
-                    value = {this.state.term}
-                    onChange={(event) => this.onInputChange(event.target.value)} />
+                <input type="text"
+                    onChange={(event) => {
+                        this.onVideoSearch(event.target.value);
+                    }}/>
 
                 <div>
                     <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
                 </div>
 
-                <hr/>
-
-                <input type="text" value={this.state.homeLink} onChange={(event) => {
-                    this.onHandleChange(event);
+                <input type="text"
+                       value={this.state.homeLink}
+                       onChange={(event) => {this.onHandleChange(event);
                 }}/>
-                
-                <div>
-                    <button onClick={() => this.onChangeLink()} className="btn btn-primary">Change Header Link</button>
-                </div>
-
             </div>
         );
-    }
-
-    onMakeOlder(){
-       this.setState({
-           age: this.state.age + 3
-       });
-    }
-    onInputChange(term){
-        this.setState({term:term});
-        this.props.onSearchTermChange(term);
-    }
-
-    onChangeLink(){
-        this.props.changeLink(this.state.homeLink);
-    }
-
-    onHandleChange(event){
-        this.setState({
-            homeLink: event.target.value
-        }, () => {
-            this.onChangeLink();
-        });
     }
 }
 

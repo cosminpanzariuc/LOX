@@ -32,7 +32,15 @@
 
 .container .board {
     background-color: #b9def0;
-    padding: 4px
+    padding: 4px;
+}
+
+.list-group-item{
+    cursor: pointer;
+}
+
+.list-group-item:hover{
+    background-color: #eee;
 }
 
 .container .board .commentContainer {
@@ -57,3 +65,9 @@
     display: block;
     margin-bottom: 10px
 }
+
+#centerText{
+    text-align: center;
+    font-weight: bold;
+}
+

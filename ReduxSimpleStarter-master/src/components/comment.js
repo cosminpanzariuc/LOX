@@ -26,7 +26,7 @@ class Comment extends Component {
         this.setState({editing: false});
     }
 
-    renderNormal() {
+    renderViewMode() {
         return (
             <div className="commentContainer">
                 <div className="commentText">{this.props.children}</div>
@@ -36,7 +36,7 @@ class Comment extends Component {
         );
     }
 
-    renderForm() {
+    renderEditMode() {
         return (
             <div className="commentContainer">
                 <textarea cols="100" ref="newText" defaultValue={this.props.children}></textarea>
@@ -47,9 +47,9 @@ class Comment extends Component {
 
     render() {
         if (this.state.editing) {
-           return this.renderForm();
+           return this.renderEditMode();
         } else {
-            return this.renderNormal();
+            return this.renderViewMode();
         }
     }
 }

@@ -19,7 +19,7 @@ class Board extends Component {
         };
     }
 
-    removeComment(i){
+    handleRemoveComment(i){
         let arr = this.state.comments;
         arr.splice(i, 1);
         this.setState({
@@ -27,7 +27,7 @@ class Board extends Component {
         });
     }
 
-    updateComment(newText, i){
+    handleUpdateComment(newText, i){
         let arr = this.state.comments;
         arr[i] = newText;
         this.setState({
@@ -35,7 +35,7 @@ class Board extends Component {
         });
     }
 
-    add(text){
+    handleAddComment(text){
         let arr = this.state.comments;
         arr.push(text);
         this.setState({
@@ -48,8 +48,8 @@ class Board extends Component {
             <Comment
                 key={i}
                 index={i}
-                updateCommentText={(newText, i)=>{this.updateComment(newText, i)}}
-                deleteFromBoard={(item)=>{this.removeComment(item)}}>
+                updateCommentText={(newText, i)=>{this.handleUpdateComment(newText, i)}}
+                deleteFromBoard={(item)=>{this.handleRemoveComment(item)}}>
                 {text}
             </Comment>
         );
@@ -58,7 +58,7 @@ class Board extends Component {
     render() {
         return (
             <div>
-                <button onClick={()=>{this.add("Default Text")}} className="btn btn-info">Add New</button>
+                <button onClick={()=>{this.handleAddComment("Default Text")}} className="btn btn-info">Add New</button>
                 <div className="board">
                     {
                         this.state.comments.map(this.eachComment.bind(this))

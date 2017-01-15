@@ -6,18 +6,18 @@ import React from 'react';
 import VideoListItem from './video_list_item';
 
 const VideoList = (props) => {
-    const VideoItems = props.video_list.map((video) => {
+    const videoItems = props.video_list.map((video) => {
         return(
             <VideoListItem
-                onVideoSelect = {props.onVideoSelect}
-                key={video.etag}
-                videoItem={video}/>
+                handleVideoSelect = {props.handleVideoSelect}
+                videoItem={video}
+                key={video.etag}/>
         );
     });
 
     return(
-        <ul className="col-md-4 list-group">
-            {VideoItems}
+        <ul>
+            {videoItems}
         </ul>
     );
 };
