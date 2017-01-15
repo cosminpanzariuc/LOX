@@ -5,7 +5,6 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/header';
 import SearchBar from './components/search_bar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
@@ -91,5 +90,12 @@ class App extends Component {
         );
     }
 }
+
+function Header(props){
+    return(
+        <div>{props.homeLink}</div>
+    );
+}
+
 
 ReactDOM.render(<App />, document.querySelector(".container"));
