@@ -1,14 +1,12 @@
 /**
  * Created by Cosmin on 28-12-2016.
  */
-
 import React from 'react';
-
 
 const VideoDetail = ({currentVideo}) => {
     // const currentVideo = props.currentVideo;
     if(!currentVideo){
-        return <div id="centerText">Loading...</div>;
+        return <div id="centerText">No video found...</div>;
     }
 
     const videoId = currentVideo.id.videoId;

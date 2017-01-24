@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import Comment from './comment';
 
 
-class Board extends Component {
+export default class Board extends Component {
 
     constructor(props) {
         super(props);
@@ -64,10 +64,9 @@ class Board extends Component {
                         this.state.comments.map(this.eachComment.bind(this))
                     }
                 </div>
+                <br/>
             </div>
 
         );
     }
 }
-
-export default Board;
