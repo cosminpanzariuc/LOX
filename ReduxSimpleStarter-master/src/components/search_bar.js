@@ -65,6 +65,7 @@ export default class SearchBar extends Component{
                 {this.props.children}
 
                 <input type="text"
+                       placeholder="Search..."
                     onChange={(event) => {
                         this.onVideoSearch(event.target.value);
                     }}/>
