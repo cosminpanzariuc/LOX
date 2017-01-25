@@ -11,6 +11,7 @@ export default class TodosList extends React.Component {
         return (this.props.todos.map((todo, index) =>
                 <TodosListItem
                     key={index}
+                    idx={index}
                     {...todo}
                     toggleTask={this.props.toggleTask}
                     saveTask={this.props.saveTask}
