@@ -35,6 +35,7 @@ export default class CreateTodo extends React.Component {
 
     handleCreate(event) {
         event.preventDefault();
+        this.refs.createInput.focus();
 
         const createInput = this.refs.createInput;
         const task = createInput.value;
@@ -56,7 +57,6 @@ export default class CreateTodo extends React.Component {
         if(!task){
             return "Plese enter a task..."
         }else if(_.find(this.props.todos, (todo) => todo.task === task)){
-            console.log("aaa");
             return "Task already exists!"
         }else{
             return null;
