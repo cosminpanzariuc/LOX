@@ -17,7 +17,7 @@ export default class TodosList extends React.Component {
                     saveTask={this.props.saveTask}
                     deleteTask={this.props.deleteTask}
                 />
-            // <TodosListItem key={index} task={todo.task} isCompleted={todo.isCompleted}/>
+            // <TodosListItem task={todo.task} isCompleted={todo.isCompleted}/>
         ));
     }
 

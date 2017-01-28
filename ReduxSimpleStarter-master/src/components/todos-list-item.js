@@ -26,15 +26,13 @@ export default class TodosListItem extends React.Component {
                 <button onClick={this.onEditClick.bind(this)}>Edit</button>
                 <button onClick={this.props.deleteTask.bind(this, this.props.idx)}>Delete</button>
             </td>
-
         );
     }
 
     renderTaskSection(){
         // const {task, isCompleted} = this.props;
-
         const taskStyle = {
-            color: this.props.isCompleted ? "green" :"red",
+            color: this.props.isCompleted ? "green" : "red",
             cursor: "pointer"
         };
 

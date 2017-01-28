@@ -102,7 +102,10 @@ class App extends Component {
 
                 <Board />
 
-                <CreateTodo createTask={this.createTask.bind(this)} />
+                <CreateTodo
+                    todos={this.state.todos}
+                    createTask={this.createTask.bind(this)}
+                />
                 <TodosList
                     todos={this.state.todos}
                     toggleTask={this.toggleTask.bind(this)}
@@ -138,7 +141,7 @@ class App extends Component {
     }
 
     deleteTask(taskToDelete){
-        // _.remove(this.state.todos, (todo) => todo.task === taskToDelete)
+        // _.remove(this.state.todos, (todo) => todo.task === taskToDelete);
         // this.setState({todos: this.state.todos});
 
         let arr = this.state.todos;
