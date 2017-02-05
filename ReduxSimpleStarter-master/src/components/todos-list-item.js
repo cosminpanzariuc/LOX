@@ -12,6 +12,28 @@ export default class TodosListItem extends React.Component {
         }
     }
 
+    renderTaskSection(){
+        // const {task, isCompleted} = this.props;
+        const taskStyle = {
+            color: this.props.isCompleted ? "green" : "red",
+            cursor: "pointer"
+        };
+
+        if(this.state.isEditing){
+            return(
+                <td>
+                    <input type="text" defaultValue={this.props.task} ref="editInput"/>
+                </td>
+            );
+        }
+
+        return(
+            <td style={taskStyle} onClick={this.props.toggleTask.bind(this, this.props.task)}>
+                {this.props.task}
+            </td>
+        );
+    }
+
     renderActionsSections(){
         if(this.state.isEditing){
             return(
@@ -29,29 +51,6 @@ export default class TodosListItem extends React.Component {
         );
     }
 
-    renderTaskSection(){
-        // const {task, isCompleted} = this.props;
-        const taskStyle = {
-            color: this.props.isCompleted ? "green" : "red",
-            cursor: "pointer"
-        };
-
-        if(this.state.isEditing){
-            return(
-                <td>
-                    <form onSubmit={this.onSaveClick.bind(this)}>
-                        <input type="text" defaultValue={this.props.task} ref="editInput"/>
-                    </form>
-                </td>
-            );
-        }
-
-        return(
-            <td style={taskStyle} onClick={this.props.toggleTask.bind(this, this.props.task)}>
-                {this.props.task}
-            </td>
-        );
-    }
 
     render() {
         return (
@@ -65,6 +64,8 @@ export default class TodosListItem extends React.Component {
     onEditClick(){
         this.setState({
             isEditing: true
+        }, function(){
+            this.refs.editInput.focus();
         });
     }
 
@@ -74,8 +75,7 @@ export default class TodosListItem extends React.Component {
         });
     }
 
-    onSaveClick(event){
-        event.preventDefault();
+    onSaveClick(){
         const oldTask = this.props.task;
         const newTask = this.refs.editInput.value;
         this.props.saveTask(oldTask, newTask);

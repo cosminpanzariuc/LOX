@@ -19,28 +19,25 @@ export default class Board extends Component {
         };
     }
 
-    handleRemoveComment(i){
-        let arr = this.state.comments;
-        arr.splice(i, 1);
+    reRenderCommentsArea(){
         this.setState({
-            comments:arr
+            comments:this.state.comments
         });
+    }
+
+    handleRemoveComment(i){
+        this.state.comments.splice(i, 1);
+        this.reRenderCommentsArea();
     }
 
     handleUpdateComment(newText, i){
-        let arr = this.state.comments;
-        arr[i] = newText;
-        this.setState({
-            comments:arr
-        });
+        this.state.comments[i] = newText;
+        this.reRenderCommentsArea();
     }
 
     handleAddComment(text){
-        let arr = this.state.comments;
-        arr.push(text);
-        this.setState({
-            comments:arr
-        });
+        this.state.comments.push(text);
+        this.reRenderCommentsArea();
     }
 
     eachComment(text, i) {
