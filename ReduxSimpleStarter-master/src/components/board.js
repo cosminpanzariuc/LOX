@@ -5,7 +5,6 @@
 import React, {Component} from 'react';
 import Comment from './comment';
 
-
 export default class Board extends Component {
 
     constructor(props) {
