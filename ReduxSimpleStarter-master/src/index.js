@@ -160,19 +160,19 @@ class App extends Component {
         this.setState({todos: this.state.todos});
     }
 
-    // deleteTask(taskToDelete){
-    //     this.state.todos.splice(taskToDelete, 1);
-    //     this.setState({
-    //         todos:this.state.todos
-    //     });
-    // }
-
     deleteTask(taskToDelete){
-        const newItems = this.state.todos.filter((item) => {
-            return item.task != taskToDelete;
+        this.state.todos.splice(taskToDelete, 1);
+        this.setState({
+            todos:this.state.todos
         });
-        this.setState({todos:newItems});
     }
+
+    // deleteTask(taskToDelete){
+    //     const newItems = this.state.todos.filter((item) => {
+    //         return item.task != taskToDelete;
+    //     });
+    //     this.setState({todos:newItems});
+    // }
 
     handleClearCompleted(event){
         let newTodos = this.state.todos.filter((todo) => {
