@@ -106,6 +106,17 @@ class App extends Component {
                     todos={this.state.todos}
                     createTask={this.createTask.bind(this)}
                 />
+
+                <hr/>
+
+                <b>Number of done tasks: {
+                    this.state.todos.filter((task) => {
+                        return task.isCompleted
+                    }).length
+                }</b>
+
+                <hr/>
+                
                 <TodosList
                     todos={this.state.todos}
                     toggleTask={this.toggleTask.bind(this)}
