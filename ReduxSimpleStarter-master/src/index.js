@@ -110,14 +110,18 @@ class App extends Component {
                 <hr/>
 
                 <div>
-                   All: {this.state.todos.length}
-                </div>
-                <div>
+                    All: {this.state.todos.length} |
+                    Pending: {
+                    this.state.todos.filter((task) => {
+                        return !task.isCompleted
+                    }).length
+                } |
                     Completed: {
                         this.state.todos.filter((task) => {
                             return task.isCompleted
                         }).length
-                    }
+                    } | &nbsp;
+                    <a href="#" onClick={this.handleClearCompleted.bind(this)}>Clear completed</a>
                 </div>
 
                 <hr/>
@@ -168,6 +172,13 @@ class App extends Component {
             return item.task != taskToDelete;
         });
         this.setState({todos:newItems});
+    }
+
+    handleClearCompleted(event){
+        let newTodos = this.state.todos.filter((todo) => {
+            return !todo.isCompleted
+        });
+        this.setState({todos:newTodos});
     }
 }
 
