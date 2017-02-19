@@ -109,14 +109,19 @@ class App extends Component {
 
                 <hr/>
 
-                <b>Number of done tasks: {
-                    this.state.todos.filter((task) => {
-                        return task.isCompleted
-                    }).length
-                }</b>
+                <div>
+                   All: {this.state.todos.length}
+                </div>
+                <div>
+                    Completed: {
+                        this.state.todos.filter((task) => {
+                            return task.isCompleted
+                        }).length
+                    }
+                </div>
 
                 <hr/>
-                
+
                 <TodosList
                     todos={this.state.todos}
                     toggleTask={this.toggleTask.bind(this)}
