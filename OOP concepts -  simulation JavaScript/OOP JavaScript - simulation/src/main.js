@@ -34,28 +34,28 @@
 
 //----------------------------------------------------------------
 
-///* Closures 1 */
-//function greet(whattosay){
+// /* Closures 1 */
+// function greet(whattosay){
 //    return function(name){
 //        console.log(whattosay + " " + name);
 //    }
-//}
-//var sayHi = greet("Hi");
-//sayHi("Tony");
+// }
+// var sayHi = greet("Hi");
+// sayHi("Tony");
 
 //----------------------------------------------------------------
 
-///* Closures 2 */
-//var incrementClickCount = function(){
+// /* Closures 2 */
+// var incrementClickCount = function(){
 //    console.log("aici intra o singura data");
 //    var clickCount = 0;
 //    return function(){
 //         return console.log(clickCount++);
 //    }
-//}();
-//incrementClickCount();
-//incrementClickCount();
-//incrementClickCount();
+// }();
+// incrementClickCount();
+// incrementClickCount();
+// incrementClickCount();
 
 //----------------------------------------------------------------
 
@@ -82,24 +82,25 @@
 
 //----------------------------------------------------------------
 
-///* Closures 5 */
-//function buildFunctions(){
-//    var arr = [];
-//    for(var i=0; i<3; i++){
-//        arr.push(function(){
-//            console.log(i);
-//        });
-//    }
-//    return arr;
-//}
+/* Closures 5 */
+// function buildFunctions() {
+//     var arr = [];
+//     for (var i = 0; i < 3; i++) {
+//         arr.push(
+//             function () {
+//                 console.log(i);
+//             });
+//     }
+//     return arr;
+// }
 //
-//var fs = buildFunctions();
-//fs[0]();
-//fs[1]();
-//fs[2]();
+// var fs = buildFunctions();
+// fs[0]();
+// fs[1]();
+// fs[2]();
 
 
-//function buildFunctions() {
+// function buildFunctions() {
 //    var arr = [];
 //    for (var i = 0; i < 3; i++) {
 //        arr.push(
@@ -107,17 +108,15 @@
 //                return function () {
 //                    console.log(j);
 //                }
-//
-//
 //            }(i)));
 //    }
 //    return arr;
-//}
+// }
 //
-//var fs = buildFunctions();
-//fs[0]();
-//fs[1]();
-//fs[2]();
+// var fs = buildFunctions();
+// fs[0]();
+// fs[1]();
+// fs[2]();
 
 
 //----------------------------------------------------------------
@@ -705,38 +704,38 @@
 
 //----------------------------------------------------------------
 
-////Functional Programming
-//var arr1 = [1, 2, 3];
-//console.log(arr1);
-//function mapForEach(arr, fn){
+// //Functional Programming
+// var arr1 = [1, 2, 3];
+// console.log(arr1);
+// function mapForEach(arr, fn){
 //    var newArr = [];
 //    for(var i=0; i < arr.length; i++){
 //        newArr.push(fn(arr[i]));
 //    }
 //    return newArr;
-//}
+// }
 //
-//var arr2 = mapForEach(arr1, function(item){
+// var arr2 = mapForEach(arr1, function(item){
 //    return item * 2;
-//});
-//console.log(arr2);
+// });
+// console.log(arr2);
 //
-//var arr3 = mapForEach(arr1, function(item){
+// var arr3 = mapForEach(arr1, function(item){
 //    return item > 2;
-//});
-//console.log(arr3);
+// });
+// console.log(arr3);
 //
-//var checkLimit = function(limiter, item){
+// var checkLimit = function(limiter, item){
 //    return item > limiter;
-//}
-//var arr4 = mapForEach(arr1, checkLimit.bind(this, 2)); //limiter=1
-//console.log(arr4);
+// }
+// var arr4 = mapForEach(arr1, checkLimit.bind(this, 2)); //limiter=1
+// console.log(arr4);
 //
-//var checkLimitSimplified = function(limiter){
+// var checkLimitSimplified = function(limiter){
 //    return function(limiter, item){
 //        return item > limiter;
 //    }.bind(this, limiter);
-//};
-//var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
-//console.log(arr5);
+// };
+// var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
+// console.log(arr5);
 
