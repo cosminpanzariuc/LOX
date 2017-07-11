@@ -59,45 +59,45 @@
 
 //----------------------------------------------------------------
 
-///* Closures 3 */
-//for(var i=1; i<=5; i++){
+// /* Closures 3 */
+// for(var i=1; i<=5; i++){
 //    (function(){
 //        var j=i;
 //        setTimeout(function timer(){
 //            console.log(j);
 //        }, j*1000);
-//    })();
-//}
+//    }());
+// }
 
 //----------------------------------------------------------------
 
-///* Closures 4 */
-//for(var i=1; i<=5; i++){
+// /* Closures 4 */
+// for(var i=1; i<=5; i++){
 //    (function(j){
 //        setTimeout(function timer(){
 //            console.log(j);
 //        }, j*1000);
-//    })(i);
-//}
+//    }(i));
+// }
 
 //----------------------------------------------------------------
 
-/* Closures 5 */
-// function buildFunctions() {
-//     var arr = [];
-//     for (var i = 0; i < 3; i++) {
+// /* Closures 5 */
+//  function buildFunctions() {
+//      var arr = [];
+//      for (var i = 0; i < 3; i++) {
 //         arr.push(
-//             function () {
-//                 console.log(i);
-//             });
-//     }
-//     return arr;
-// }
+//              function () {
+//                  console.log(i);
+//              });
+//      }
+//      return arr;
+//  }
 //
-// var fs = buildFunctions();
-// fs[0]();
-// fs[1]();
-// fs[2]();
+//  var fs = buildFunctions();
+//  fs[0]();
+//  fs[1]();
+//  fs[2]();
 
 
 // function buildFunctions() {
@@ -295,19 +295,19 @@
 
 //----------------------------------------------------------------
 
-////Pseudoclassical inheritance
-//var extendObj = function(childObj, parentObj) {
-//    //childObj.prototype = parentObj.prototype; // Not OK
-//    //childObj.prototype = Object.create(parentObj.prototype);
-//    
-//    var tmpObj = function () {};
-//    tmpObj.prototype = parentObj.prototype;
-//    childObj.prototype = new tmpObj();
-//    childObj.prototype.constructor = childObj;
-//};
+// //Pseudoclassical inheritance
+// var extendObj = function(childObj, parentObj) {
+//    childObj.prototype = parentObj.prototype; // Not OK
+//    // childObj.prototype = Object.create(parentObj.prototype); //- OK
 //
-//var Human = function() {};
-//Human.prototype = {
+//    // var tmpObj = function () {};
+//    // tmpObj.prototype = parentObj.prototype;
+//    // childObj.prototype = new tmpObj();
+//    // childObj.prototype.constructor = childObj;
+// };
+//
+// var Human = function() {};
+// Human.prototype = {
 //    name: '',
 //    gender: '',
 //    planetOfBirth: 'Earth',
@@ -317,29 +317,29 @@
 //    sayPlanet: function () {
 //        console.log(this.name + ' was born on ' + this.planetOfBirth);
 //    }
-//};
+// };
 //
-//var Male = function (name) {
+// var Male = function (name) {
 //    this.gender = 'Male';
 //    this.name = 'David';
-//};
-//extendObj(Male, Human);
+// };
+// extendObj(Male, Human);
 //
-//var Female = function (name) {
+// var Female = function (name) {
 //    this.gender = 'Female';
 //    this.name = name;
-//};
-//extendObj(Female, Human);
+// };
+// extendObj(Female, Human);
 //
-//var david = new Male('David');
-//var jane = new Female('Jane');
+// var david = new Male('David');
+// var jane = new Female('Jane');
 //
-//david.sayGender(); // David says my gender is Male
-//jane.sayGender(); // Jane says my gender is Female
+// david.sayGender(); // David says my gender is Male
+// jane.sayGender(); // Jane says my gender is Female
 //
-//Male.prototype.planetOfBirth = 'Mars';
-//david.sayPlanet(); // David was born on Mars
-//jane.sayPlanet(); // Jane was born on Earth
+// Male.prototype.planetOfBirth = 'Mars';
+// david.sayPlanet(); // David was born on Mars
+// jane.sayPlanet(); // Jane was born on Earth
 
 //----------------------------------------------------------------
 
