@@ -343,57 +343,30 @@
 
 //----------------------------------------------------------------
 
-////Pure Prototypal Inheritance
-//var person = {
-//    firstName: "Default",
-//    lastName: "Default",
-//    getFullName: function(){
-//        return this.firstName + " " + this.lastName;
-//    }
-//}
-//
-//var john = {
-//    firstName: "John",
-//    lastName: "Doe",
-//}
-//
-////john.__proto__ = person;
-//console.log(person.getFullName.call(john));
-//
-//
-//john = Object.create(person);
-//john.firstName = "John",
-//john.lastName = "Doe"
-//for(prop in john){
-//    console.log(prop + ": " + john[prop]);
-//}
+//Inheritance
+var Employee = function(name){
+   this.name = name;
+}
+Employee.prototype.getName = function(){
+   return this.name;
+}
 
-//----------------------------------------------------------------
+var PermanentEmployee = function(salary){
+   this.salary = salary;
+}
 
-////Inheritance
-//var Employee = function(name){
-//    this.name = name;
-//}
-//Employee.prototype.getName = function(){
-//    return this.name;
-//}
-//
-//var PermanentEmployee = function(salary){
-//    this.salary = salary;
-//}
-//
-//var employee = new Employee("Cosmin");
-//PermanentEmployee.prototype = employee; 
-////PermanentEmployee.prototype = Object.create(Employee.prototype);
-//
-//var pe = new PermanentEmployee(5000);
-//console.log(pe.getName() + " " + pe.salary);
-//console.log(pe instanceof Employee);
-//console.log(pe instanceof PermanentEmployee);
-//console.log("employee.name " + employee.hasOwnProperty("name"));
-//console.log("employee.salary " + employee.hasOwnProperty("salary"));
-//console.log("pe.name " + pe.hasOwnProperty("name"));
-//console.log("pe.salary " + pe.hasOwnProperty("salary"));
+var employee = new Employee("Cosmin");
+PermanentEmployee.prototype = employee;
+//PermanentEmployee.prototype = Object.create(Employee.prototype);
+
+var pe = new PermanentEmployee(5000);
+console.log(pe.getName() + " " + pe.salary);
+console.log(pe instanceof Employee);
+console.log(pe instanceof PermanentEmployee);
+console.log("employee.name " + employee.hasOwnProperty("name"));
+console.log("employee.salary " + employee.hasOwnProperty("salary"));
+console.log("pe.name " + pe.hasOwnProperty("name"));
+console.log("pe.salary " + pe.hasOwnProperty("salary"));
 
 //----------------------------------------------------------------
 
