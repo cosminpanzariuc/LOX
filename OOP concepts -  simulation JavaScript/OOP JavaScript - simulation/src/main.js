@@ -1,4 +1,4 @@
-////Creating custom Pseudo-Class Selector
+// //Creating custom Pseudo-Class Selector
 //    $.extend($.expr[":"], {
 //        isRed: function (elem) {
 //            return $(elem).hasClass("red");
@@ -103,12 +103,12 @@
 // function buildFunctions() {
 //    var arr = [];
 //    for (var i = 0; i < 3; i++) {
-//        arr.push(
-//            (function (j) {
-//                return function () {
-//                    console.log(j);
-//                }
-//            }(i)));
+//       arr.push(
+//           (function (j) {
+//              return function () {
+//                 console.log(j);
+//              }
+//           }(i)));
 //    }
 //    return arr;
 // }
@@ -121,17 +121,17 @@
 
 //----------------------------------------------------------------
 
-////Properties in JavaScript - Read Only properties, Restrictions
-//var myObject = {};
-//Object.defineProperty(myObject, "FAVOURITE_NUMBER", {
+// //Properties in JavaScript - Read Only properties, Restrictions
+// var myObject = {};
+// Object.defineProperty(myObject, "FAVOURITE_NUMBER", {
 //    value: 42,
 //    writable: true,
 //    configurable: true
-//});
+// });
 //
-//Object.preventExtensions(myObject);
-////Seal = preventExtensions + configurable=false (for all object's properties)
-////Freeze = Seal + writable=false (for all object's properties)
+// Object.preventExtensions(myObject);
+// //Seal = preventExtensions + configurable=false (for all object's properties)
+// //Freeze = Seal + writable=false (for all object's properties)
 
 //----------------------------------------------------------------
 
@@ -139,7 +139,7 @@
 //   get a() {
 //       return this._a_;
 //   },
-//    
+//
 //    set a(val){
 //        this._a_ = val * 2;
 //    }
@@ -262,17 +262,17 @@
 
 //----------------------------------------------------------------
 
-////Explicit Mixins
-//function mixin(sourceObj, targetObj) {
+// //Explicit Mixins
+// function mixin(sourceObj, targetObj) {
 //    for (var key in sourceObj) {
 //        if (!(key in targetObj)) {
 //            targetObj[key] = sourceObj[key]
 //        }
 //    }
 //    return targetObj;
-//}
+// }
 //
-//var vehicle = {
+// var vehicle = {
 //    engines: 1,
 //    ignition: function () {
 //        console.log("Turning on my engine!");
@@ -281,24 +281,24 @@
 //        this.ignition();
 //        console.log("Steering and moving forward!");
 //    }
-//}
+// };
 //
-//var car = mixin(vehicle, {
+// var car = mixin(vehicle, {
 //    wheels: 4,
 //    drive: function () {
 //        vehicle.drive.call(this);
 //        console.log("Rolling on all " + this.wheels + " wheels!");
 //    }
-//});
+// });
 //
-//console.log(car.drive());
+// console.log(car.drive());
 
 //----------------------------------------------------------------
 
 // //Pseudoclassical inheritance
 // var extendObj = function(childObj, parentObj) {
-//    childObj.prototype = parentObj.prototype; // Not OK
-//    // childObj.prototype = Object.create(parentObj.prototype); //- OK
+//    // childObj.prototype = parentObj.prototype; // Not OK
+//    childObj.prototype = Object.create(parentObj.prototype); //- OK
 //
 //    // var tmpObj = function () {};
 //    // tmpObj.prototype = parentObj.prototype;
@@ -321,7 +321,7 @@
 //
 // var Male = function (name) {
 //    this.gender = 'Male';
-//    this.name = 'David';
+//    this.name = name;
 // };
 // extendObj(Male, Human);
 //
