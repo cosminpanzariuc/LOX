@@ -343,30 +343,30 @@
 
 //----------------------------------------------------------------
 
-//Inheritance
-var Employee = function(name){
-   this.name = name;
-}
-Employee.prototype.getName = function(){
-   return this.name;
-}
-
-var PermanentEmployee = function(salary){
-   this.salary = salary;
-}
-
-var employee = new Employee("Cosmin");
-PermanentEmployee.prototype = employee;
-//PermanentEmployee.prototype = Object.create(Employee.prototype);
-
-var pe = new PermanentEmployee(5000);
-console.log(pe.getName() + " " + pe.salary);
-console.log(pe instanceof Employee);
-console.log(pe instanceof PermanentEmployee);
-console.log("employee.name " + employee.hasOwnProperty("name"));
-console.log("employee.salary " + employee.hasOwnProperty("salary"));
-console.log("pe.name " + pe.hasOwnProperty("name"));
-console.log("pe.salary " + pe.hasOwnProperty("salary"));
+// //Inheritance
+// var Employee = function(name){
+//    this.name = name;
+// };
+// Employee.prototype.getName = function(){
+//    return this.name;
+// };
+//
+// var PermanentEmployee = function(salary){
+//    this.salary = salary;
+// };
+//
+// var employee = new Employee("Cosmin");
+// PermanentEmployee.prototype = employee;
+// // PermanentEmployee.prototype = Object.create(Employee.prototype);
+//
+// var pe = new PermanentEmployee(5000);
+// console.log(pe.getName() + " " + pe.salary);
+// console.log("pe instanceof Employee - ", pe instanceof Employee);
+// console.log("pe instanceof PermanentEmployee - ", pe instanceof PermanentEmployee);
+// console.log("employee hasOwnProperty name - ", employee.hasOwnProperty("name"));
+// console.log("employee hasOwnProperty salary - ", employee.hasOwnProperty("salary"));
+// console.log("pe hasOwnProperty name  - ", pe.hasOwnProperty("name"));
+// console.log("pe hasOwnProperty salary - ", pe.hasOwnProperty("salary"));
 
 //----------------------------------------------------------------
 
