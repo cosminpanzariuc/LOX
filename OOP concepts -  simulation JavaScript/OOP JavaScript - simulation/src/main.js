@@ -370,75 +370,76 @@
 
 //----------------------------------------------------------------
 
-////The Inheritance Pattern
-//function Beverage(name, temperature){
+// //The Inheritance Pattern
+// function Beverage(name, temperature){
 //    this.name = name;
 //    this.temperature = temperature;
-//}
-//Beverage.prototype.drink = function(){
+// }
+// Beverage.prototype.drink = function(){
 //    console.log("I'm drinking " + this.temperature + " " + this.name);
-//}
+// };
 //
-//function Cofee(type){
-//    this.type = type;
-//    Beverage.call(this, "coFee", "HOOOOOOOOOT");
-//}
-//Cofee.prototype = Object.create(Beverage.prototype);
-//Cofee.prototype.sip = function(){
+// function Cofee(type){
+//     Beverage.call(this, "coFee", "HOOOOOOOOOT");
+//     this.type = type;
+// }
+// Cofee.prototype = Object.create(Beverage.prototype);
+// Cofee.prototype.sip = function(){
 //    console.log("Sipping some awesome " + this.temperature + " " + this.type + " " + this.name);
-//}
+// };
 //
-//var water = new Beverage("water", "COLD");
-//var cofee = new Cofee("bold dark roast");
-//cofee.sip();
-//cofee.drink();
-//console.log(Cofee.prototype.isPrototypeOf(cofee));
-//console.log(Object.getPrototypeOf(cofee) === Cofee.prototype);
+// var water = new Beverage("water", "COLD");
+// water.drink();
+// var cofee = new Cofee("bold dark roast");
+// cofee.drink();
+// cofee.sip();
+// console.log(Cofee.prototype.isPrototypeOf(cofee));
+// console.log(Object.getPrototypeOf(cofee) === Cofee.prototype);
 
 //----------------------------------------------------------------
 
-////Mental Models Compared - OO Style
-//function Foo(who){
+// //Mental Models Compared - OO Style
+// function Foo(who){
 //    this.me = who;
-//}
-//Foo.prototype.identify = function(){
+// }
+// Foo.prototype.identify = function(){
 //    return "I am " + this.me;
-//}
+// };
 //
-//function Bar(who){
+// function Bar(who){
 //    Foo.call(this, who);
-//}
-//Bar.prototype = Object.create(Foo.prototype);
-//Bar.prototype.speak = function(){
+// }
+// Bar.prototype = Object.create(Foo.prototype);
+// Bar.prototype.speak = function(){
 //    console.log("Hello, " + this.identify() + ".");
-//}
+// };
 //
-//var b1 = new Bar("b1");
-//var b2 = new Bar("b2");
-//b1.speak();
-//b2.speak();
+// var b1 = new Bar("b1");
+// var b2 = new Bar("b2");
+// b1.speak();
+// b2.speak();
 
-////Mental Models Compared - OLOO Style
-//var Foo = {
+// //Mental Models Compared - OLOO Style
+// var Foo = {
 //    init: function(who){
 //        this.me = who;
 //    },
 //    identify: function(){
 //        return "I am " + this.me;
 //    }
-//}
+// };
 //
-//var Bar = Object.create(Foo);
-//Bar.speak = function(){
+// var Bar = Object.create(Foo);
+// Bar.speak = function(){
 //    console.log("Hello, " + this.identify() + ".");
-//}
+// };
 //
-//var b1 = Object.create(Bar);
-//var b2 = Object.create(Bar);
-//b1.init("b1");
-//b2.init("b2");
-//b1.speak();
-//b2.speak();
+// var b1 = Object.create(Bar);
+// var b2 = Object.create(Bar);
+// b1.init("b1");
+// b2.init("b2");
+// b1.speak();
+// b2.speak();
 
 //----------------------------------------------------------------
 ////Mixins jQuery
