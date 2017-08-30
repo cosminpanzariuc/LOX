@@ -442,40 +442,41 @@
 // b2.speak();
 
 //----------------------------------------------------------------
-////Mixins jQuery
-//function Person(name) {
+
+// //Mixins jQuery
+// function Person(name) {
 //    this.name = name;
-//}
-//function Dog(name) {
+// }
+// function Dog(name) {
 //    this.name = name;
-//}
-//var speaker = {
+// }
+// var speaker = {
 //    speak: function () {
 //        return this.name + " is speaking!"
 //    }
-//}
-//var mover = {
+// };
+// var mover = {
 //    walk: function () {
 //        return this.name + " is walking!"
 //    },
 //    run: function () {
 //        return this.name + " is running!"
 //    }
-//}
-//var math = {
+// };
+// var math = {
 //    multiply: function () {
 //        return this.name + " is doing Math!"
 //    }
-//}
-//$.extend(Person.prototype, speaker, mover, math);
-//$.extend(Dog.prototype, speaker, mover);
-//var john = new Person("John Doe");
-//var fido = new Dog("Fido");
+// };
+// $.extend(Person.prototype, speaker, mover, math);
+// $.extend(Dog.prototype, speaker, mover);
+// var john = new Person("John Doe");
+// var fido = new Dog("Fido");
 
 //----------------------------------------------------------------
 
 ////Module Pattern
-//var dom = (function(){
+// var dom = (function(){
 //    var _counter = 0;
 //    return{
 //        generateId: function(){
@@ -487,9 +488,9 @@
 //            return el;
 //        }
 //    }
-//}());
+// }());
 //
-//var dom = (function(){
+// var dom = (function(){
 //    var _counter = 0;
 //    function generateId(){
 //        return "customId" + _counter++;
@@ -503,39 +504,38 @@
 //        generteId: generateId,
 //        create: create
 //    }
-//}());
+// }());
 
 //----------------------------------------------------------------
 
-//var Zoo = (function() { 
+// var Zoo = (function() {
 //  var getBarkStyle = function(isHowler) {
 //    return isHowler ? 'woooooow!': 'woof, woof!';
-//  }; 
-//  
+//  };
+//
 //  var Dog = function(name, breed) {
 //    this.bark = function() {
 //      return name + ': ' + getBarkStyle(breed === 'husky');
 //    };
 //  };
-//  
+//
 //  var Wolf = function(name) {
 //    this.bark = function() {
 //      return name + ': ' + getBarkStyle(true);
 //    };
 //  };
-//  
+//
 //  return {
 //    Dog: Dog,
 //    Wolf: Wolf
 //  };
-//})();
+// })();
 //
+// var myDog = new Zoo.Dog('Sherlock', 'beagle');
+// console.log(myDog.bark()); // Sherlock: woof, woof!
 //
-//var myDog = new Zoo.Dog('Sherlock', 'beagle');
-//console.log(myDog.bark()); // Sherlock: woof, woof!
-//
-//var myWolf = new Zoo.Wolf('Werewolf');
-//console.log(myWolf.bark()); // Werewolf: woooooow!
+// var myWolf = new Zoo.Wolf('Werewolf');
+// console.log(myWolf.bark()); // Werewolf: woooooow!
 
 //----------------------------------------------------------------
 
@@ -713,3 +713,39 @@
 // var arr5 = mapForEach(arr1, checkLimitSimplified(2)); //limiter=1
 // console.log(arr5);
 
+
+//Function chaining
+// var obj = function(){
+//     this.i = 0;
+//     this.add = function(i){
+//         this.i += i;
+//     };
+//     this.substract = function(i){
+//         this.i -= i;
+//     };
+//     this.print = function(){
+//        console.log(this.i);
+//     };
+// };
+// var x = new obj();
+// x.add(3).substract(2).print();
+
+
+// var obj = function(){
+//     var i = 0;
+//     var add = function(j){
+//        i += j;
+//         return this;
+//     };
+//     var substract = function(j){
+//         i -= j;
+//         return this;
+//     };
+//     var print = function(){
+//         console.log(i);
+//     };
+//
+//     return{add: add, substract: substract, print: print}
+// };
+// var x = obj();
+// x.add(3).substract(2).print();
