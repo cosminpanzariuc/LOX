@@ -617,64 +617,48 @@
 
 //----------------------------------------------------------------
 
-////Call, Bind, Apply
-//function foo(something){
-//    console.log(this.a, something);
-//    return this.a + something;
-//}
-//
-//function bind(fn, obj){
-//   return function(){
-//        return fn.apply(obj, arguments);
-//   }
-//}
-//
-//var obj = {
-//    a: 2
-//}
-//
-//var bar = bind(foo, obj);
-//var b = bar(2);
-
-//----------------------------------------------------------------
-
-//var person = {
+// //Call, Bind, Apply
+// var person = {
 //    firstname: 'John',
 //    lastname: 'Doe',
 //    getFullName: function() {
 //        var fullname = this.firstname + ' ' + this.lastname;
 //        return fullname;
 //    }
-//}
+// };
 //
-//var logName = function(lang1, lang2) {
+// var logName = function(lang1, lang2) {
 //    console.log('Logged: ' + this.getFullName());
 //    console.log('Arguments: ' + lang1 + ' ' + lang2);
 //    console.log('-----------');
-//}
+// };
 //
-//var logPersonName = logName.bind(person);
-//logPersonName('en', 'ro');
-//logName.call(person, 'en', 'fr');
-//logName.apply(person, ['en', 'gr']);
+// logName.call(person, 'en', 'fr');
+// logName.apply(person, ['en', 'gr']);
+// var logPersonName = logName.bind(person);
+// logPersonName('en', 'ro');
 //
-//// function borrowing
-//var person2 = {
+//
+//
+// // function borrowing
+// var person2 = {
 //    firstname: 'Jane',
 //    lastname: 'Doe'
-//}
-//console.log(person.getFullName.apply(person2));
+// }
+// console.log(person.getFullName.apply(person2));
 //
-//// function currying
-//function multiply(a, b) {
-//    return a*b;   
-//}
 //
-//var multipleByTwo = multiply.bind(this, 2);
-//console.log(multipleByTwo(4));
 //
-//var multipleByThree = multiply.bind(this, 3);
-//console.log(multipleByThree(4));
+// // function currying
+// function multiply(a, b) {
+//    return a * b;
+// }
+//
+// var multipleByTwo = multiply.bind(this, 2);
+// console.log(multipleByTwo(4));
+//
+// var multipleByThree = multiply.bind(this, 3);
+// console.log(multipleByThree(4));
 
 //----------------------------------------------------------------
 
