@@ -569,21 +569,22 @@
 
 //----------------------------------------------------------------
 
-////Factory Pattern
-//function makeGladiator(name, attack, defense, hitPoints){
-//    return{
-//        name: name,
-//        attack: attack,
-//        defense: defense,
-//        hitPoints: hitPoints,
-//        sayName: function(){
-//            console.log('Hello, my name is ' + this.name);
-//        }
-//    }
-//}
-//var jesse = makeGladiator("Jesse", 10, 12, 10);
-//var john = makeGladiator("John", 12, 10, 12);
-//
+// //Factory Pattern
+// function makeGladiator(name, attack, defense, hitPoints) {
+//     return {
+//         name: name,
+//         attack: attack,
+//         defense: defense,
+//         hitPoints: hitPoints,
+//         sayName: function () {
+//             console.log('Hello, my name is ' + this.name);
+//         }
+//     }
+// }
+// var jesse = makeGladiator("Jesse", 10, 12, 10);
+// var john = makeGladiator("John", 12, 10, 12);
+
+
 //function makeGladiator(name, attack, defense, hitPoints) {
 //    var temp = {};
 //    temp.name = name;
@@ -600,8 +601,8 @@
 
 //----------------------------------------------------------------
 
-////Constructor Pattern / Dynamic Prototype (inner method)
-//function Gladiator(name, attack, defense, hitPoints) {
+//Constructor Pattern / Dynamic Prototype 
+// function Gladiator(name, attack, defense, hitPoints) {
 //    this.name = name;
 //    this.attack = attack;
 //    this.defense = defense;
@@ -611,9 +612,9 @@
 //            console.log('Hello, my name is ' + this.name);
 //        }
 //    }
-//}
-//var jesse = new Gladiator("Jesse", 10, 12, 10);
-//var john = new Gladiator("John", 12, 10, 12);
+// }
+// var jesse = new Gladiator("Jesse", 10, 12, 10);
+// var john = new Gladiator("John", 12, 10, 12);
 
 //----------------------------------------------------------------
 
