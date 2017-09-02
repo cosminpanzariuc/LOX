@@ -601,7 +601,7 @@
 
 //----------------------------------------------------------------
 
-//Constructor Pattern / Dynamic Prototype 
+//Constructor Pattern / Dynamic Prototype
 // function Gladiator(name, attack, defense, hitPoints) {
 //    this.name = name;
 //    this.attack = attack;
@@ -734,3 +734,67 @@
 // };
 // var x = obj();
 // x.add(3).substract(2).print();
+
+
+//Callback functions
+// var calculator = {
+//     calculate: function (x, y, fn) {
+//         return fn(x, y);
+//     }
+// };
+// var sum = function (x, y) {
+//     return x + y;
+// };
+// var diff = function(x, y){
+//     return x - y;
+// };
+// var sumResult = calculator.calculate(8, 3, sum);
+// var diffResult = calculator.calculate(8, 3, diff);
+// console.log("sumResult=" + sumResult, "diffResult=" + diffResult);
+
+
+// //Array Methods - Higher-Order Functions
+// var fruit = ["apples", "oranges", "bananas", "grapes"];
+//
+// //EVERY
+// function isString(value, index, array){
+//     return typeof value === "string";
+// };
+// console.log("EVERY - ", fruit.every(isString)); //returns TRUE if all the array elements pass the test, and it returns FALSE in any other case
+//
+// //SOME
+// function startWithG(value, index, array){
+//     return value[0] === "g"
+// }
+// console.log("SOME - ", fruit.some(startWithG)); //returns TRUE if at least one of the array elements pass the test, and it returns FALSE if none of the array elements pass the test
+//
+// //FILTER
+// function startsWithAB(value, index, array){
+//     return value[0] === "a" || value[0] === "b"
+// }
+// console.log("FILTER - ", fruit.filter(startsWithAB)); //return a new array (without modifying the original one) with all the elements that pass the test
+//
+// //FOREACH
+// function doSomething(value, index, array){
+//     console.log("FOREACH - " + value + "!!!!!");
+// }
+// fruit.forEach(doSomething); // it just executes a function for each element of the array
+//
+// //MAP
+// function iLike(value, index, array){
+//     return "i like " + value;
+// }
+// console.log("MAP - ", fruit.map(iLike)); //it executes a function for each element of the array AND retruns a new array with all the elements that had been modified;
+//
+// //REDUCE
+// var orders = [
+//     {amount:250},
+//     {amount:400},
+//     {amount:100},
+//     {amount:325},
+// ];
+// var totalAmount = orders.reduce(function(sum, order){
+//     console.log(sum, order);
+//     return sum + order.amount
+// }, 0);
+// console.log(totalAmount);
