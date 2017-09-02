@@ -798,3 +798,26 @@
 //     return sum + order.amount
 // }, 0);
 // console.log(totalAmount);
+
+
+// //Currying
+// var dragon  = function(name, size, element){
+//     return name + " is a " + size + " dragon that breathes " + element + "!";
+// };
+// console.log(dragon("Fluffykins", "tiny", "lightning"));
+//
+//
+// var dragon = function (name) {
+//     return function (size) {
+//         return function (element) {
+//             return name + " is a " + size + " dragon that breathes " + element + "!";
+//         }
+//     }
+// };
+// console.log(dragon("Fluffykins")("tiny")("lightning") + " - Curry");
+//
+// var fluffykinsDragon = dragon("Fluffykins");
+// var tinyDragon = fluffykinsDragon("tiny");
+// var breathLightningDragon = tinyDragon("lightning");
+// console.log(breathLightningDragon + " - Curry");
+
