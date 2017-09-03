@@ -698,7 +698,7 @@
 
 
 //Function chaining
-// var obj = function(){
+// var Calculator = function(){
 //     this.i = 0;
 //     this.add = function(i){
 //         this.i += i;
@@ -710,14 +710,15 @@
 //        console.log(this.i);
 //     };
 // };
-// var x = new obj();
+// var x = new Calculator();
 // x.add(3).substract(2).print();
 
 
-// var obj = function(){
+// var Calculator = function(){
 //     var i = 0;
 //     var add = function(j){
 //        i += j;
+//         console.log(this);
 //         return this;
 //     };
 //     var substract = function(j){
@@ -730,7 +731,7 @@
 //
 //     return{add: add, substract: substract, print: print}
 // };
-// var x = obj();
+// var x = Calculator();
 // x.add(3).substract(2).print();
 
 
