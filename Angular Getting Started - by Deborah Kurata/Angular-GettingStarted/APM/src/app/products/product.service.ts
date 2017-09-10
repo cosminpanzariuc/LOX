@@ -18,6 +18,11 @@ export class ProductService {
                .catch(this.handleError);
   }
 
+  getProduct(id: number): Observable<IProduct> {
+    return this.getProducts()
+        .map((products: IProduct[]) => products.find(p => p.productId === id));
+}
+
   private handleError(err: HttpErrorResponse){
     console.log(err.message);
     return Observable.throw(err.message);
