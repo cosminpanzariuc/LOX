@@ -13,7 +13,6 @@ new Vue({
         changeTitle: function (event) {
             this.title = event.target.value;
         },
-
         increase: function (step, event) {
             this.counter += step;
             console.log(event);
@@ -25,7 +24,7 @@ new Vue({
 
     computed: {
         renderTitle: function () {
-            console.log("intraaa");
+            console.log("intraaa..");
             return this.title;
         }
     }
