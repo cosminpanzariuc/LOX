@@ -27,5 +27,14 @@ new Vue({
             console.log("intraaa..");
             return this.title;
         }
+    },
+
+    watch: {
+        counter: function(value){
+            var vm = this;
+            setTimeout(function(){
+                vm.counter = 0;
+            }, 5000);
+        }
     }
 });
