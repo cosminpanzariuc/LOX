@@ -11,11 +11,12 @@ new Vue({
     },
     methods: {
         changeTitle: function (event) {
+            // console.log(event);
             this.title = event.target.value;
         },
         increase: function (step, event) {
             this.counter += step;
-            console.log(event);
+            // console.log(event);
         },
         alertMe: function () {
             alert("ENTER!!!!!");
