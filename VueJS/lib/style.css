@@ -1,0 +1,30 @@
+.redText{
+    color: red;
+}
+
+
+.demo{
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    display: inline-block;
+    margin: 10px;
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.prograss-bar{
+    width: 200px;
+    height: 20px;
+    border: 1px solid black;
+}
