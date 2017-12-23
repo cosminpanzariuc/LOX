@@ -13,7 +13,18 @@ new Vue({
         progressBar: {
             width: '0px',
             backgroundColor: 'red'
-        }
+        },
+        show: true,
+        ingredients: ['meat', 'fruit', 'cookies'],
+        myObject: {
+            title: 'Lord of the Rings',
+            author: 'J.R.R. Tolkiens',
+            books: '3'
+        },
+        persons: [
+            {name: 'Max', age: 27, color: 'green'},
+            {name: 'Anna', age: '21', color: 'blue'}
+        ]
     },
 
     methods: {
