@@ -1,7 +1,7 @@
 <template>
 
   <header>
-    <h1>{{title}}</h1>
+    <h1 @click="changeTitle">{{title}}</h1>
   </header>
 
 </template>
@@ -18,6 +18,11 @@
     data(){
       return {
 
+      }
+    },
+    methods:{
+      changeTitle(){
+        this.$emit('changeTitle', 'Vue Wizards');
       }
     }
 

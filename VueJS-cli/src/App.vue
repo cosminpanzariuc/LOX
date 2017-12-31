@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header :title="title"></app-header>
+    <app-header :title="title" @changeTitle="updateTitle($event)"></app-header>
     <app-ninjas :ninjas="ninjasArr"></app-ninjas>
     <app-footer :title="title"></app-footer>
   </div>
@@ -28,6 +28,13 @@
           {name: 'Yoshi', speciality: 'Data Diggin', show: false}
         ],
         title: 'Vue Ninjas'
+      }
+    },
+
+    methods:{
+      updateTitle(updatedTitle){
+        this.title = updatedTitle;
+       
       }
     }
   }
