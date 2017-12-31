@@ -7,7 +7,9 @@
 </template>
 
 
-<script>
+<script type="text/babel">
+  import {bus} from '../main';
+
   export default {
     props: {
       title: {
@@ -23,6 +25,8 @@
     methods:{
       changeTitle(){
         this.$emit('changeTitle', 'Vue Wizards');
+//        this.title = 'Vue Wizards';
+//        bus.$emit('titleChanged', this.title);
       }
     }
 
