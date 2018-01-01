@@ -12,7 +12,7 @@
       <button @click="currentComponent='form-one'">Show form one</button>
       <button @click="currentComponent='form-two'">Show form two</button>
     </div>
-    
+
   </div>
 
 </template>
