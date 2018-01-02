@@ -6,11 +6,13 @@
         <p>Enter your details to log-in</p>
       </div>
       <div slot="form-fields">
-        <input type="text" placeholder="Username" required ref="username" />
-        <input type="password" placeholder="Password" required ref="password" />
+        <input type="text" placeholder="Username" required ref="username" v-model="blog.username"/>
+        <input type="password" placeholder="Password" required ref="password" v-model="blog.password"/>
       </div>
       <div slot="form-controls">
         <button @click.prevent="readRefs">Login</button>
+        <span>{{blog.username}} - </span>
+        <span>{{blog.password}}</span>
       </div>
     </form-helper>
   </div>
@@ -24,6 +26,10 @@
     },
     data () {
       return {
+        blog:{
+          username: "",
+          password: ""
+        }
       }
     },
     methods: {

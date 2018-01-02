@@ -45,7 +45,7 @@
           {name: 'Yoshi', speciality: 'Data Diggin', show: false}
         ],
         title: 'Vue Ninjas',
-        currentComponent: 'form-one'
+        currentComponent: 'form-two'
       }
     },
 
