@@ -30,12 +30,8 @@ Delete a branch on your local filesystem :
 $ git branch -d [name_of_your_new_branch]
 
 
-Delete the branch on github :
-$ git push origin :[name_of_your_new_branch]
-
-
-To force the deletion of local branch on your filesystem :
-$ git branch -D [name_of_your_new_branch]
+Delete a remote
+git push <remote_name> --delete <branch_name>
 
 
 Update your branch when the original branch from official repository has been updated :

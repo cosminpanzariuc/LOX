@@ -47,7 +47,7 @@
     components: {
       'form-helper': formHelper
     },
-    data () {
+    data() {
       return {
         blog:{
           username: "",

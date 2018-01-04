@@ -14,7 +14,7 @@
     props:{
       title:{
         type: String,
-        required: true
+        default: "Maximilian Schwarzmüller"
       }
     },
     data(){
