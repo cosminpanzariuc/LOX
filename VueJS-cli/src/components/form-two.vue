@@ -5,6 +5,7 @@
         <h3>Form Two - Log In</h3>
         <p>Enter your details to log-in</p>
       </div>
+
       <div slot="form-fields">
         <input type="text" placeholder="Username" required ref="username" v-model="blog.username"/>
         <input type="password" placeholder="Password" required ref="password" v-model="blog.password"/>
@@ -23,10 +24,8 @@
         <select v-model="blog.author">
           <option v-for="author in authors">{{author}}</option>
         </select>
-        
-
-
       </div>
+
       <div slot="form-controls">
         <button @click.prevent="readRefs">Login</button>
         <span>{{blog.username}} - </span>
