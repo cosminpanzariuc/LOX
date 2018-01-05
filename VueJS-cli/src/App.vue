@@ -6,7 +6,7 @@
     <app-footer :title="title"></app-footer>
 
     <keep-alive>
-      <component :is="currentComponent">aaaaaaaaa</component>
+      <component :is="currentComponent"></component>
     </keep-alive>
     <div style="text-align:center">
       <button @click="currentComponent='form-one'">Show form one</button>
