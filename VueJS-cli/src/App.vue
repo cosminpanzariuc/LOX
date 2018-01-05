@@ -30,7 +30,6 @@
       'app-header': Header,
       'app-footer': Footer,
       'app-ninjas': Ninjas,
-      'form-helper': formHelper,
       'form-one': formOne,
       'form-two': formTwo
     },
