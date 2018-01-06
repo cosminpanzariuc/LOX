@@ -22,7 +22,7 @@
     },
     methods: {
       createNew(){
-        this.$emit('quoteAdded', this.quote);
+        this.$emit('newQuoteAdded', this.quote);
         this.quote = '';
       }
     }

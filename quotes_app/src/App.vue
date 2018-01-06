@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
-    <app-new-quote @quoteAdded="newQuote($event)"></app-new-quote>
+    <app-new-quote @newQuoteAdded="newQuote($event)"></app-new-quote>
     <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote($event)"></app-quote-grid>
     <div class="row">
       <div class="col-sm-12 text-center">
