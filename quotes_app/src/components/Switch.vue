@@ -17,12 +17,12 @@
 
 
   export default {
+    props: ['value'],
     data(){
       return {
         isActivated: this.value
       }
     },
-    props: ['value'],
     methods: {
       switched(isOn){
         this.$emit('input', isOn);
