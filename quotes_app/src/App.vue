@@ -10,6 +10,9 @@
         </div>
       </div>
     </div>
+
+    <basic-form></basic-form>
+
   </div>
 </template>
 
@@ -17,6 +20,7 @@
   import QuoteGrid from './components/QuoteGrid';
   import NewQuote from './components/NewQuote.vue';
   import Header from './components/Header.vue';
+  import basicForm from './components/vue-form.vue';
 
   export default {
     data(){
@@ -41,7 +45,8 @@
     components: {
       appQuoteGrid: QuoteGrid,
       appNewQuote: NewQuote,
-      appHeader: Header
+      appHeader: Header,
+      basicForm: basicForm
     }
   }
 </script>
