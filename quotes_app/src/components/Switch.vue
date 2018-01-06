@@ -2,12 +2,12 @@
   <div>
     <div
       id="on"
-      @click="value = switched(true)"
+      @click="switched(isActivated)"
       :class="{active: value}">On
     </div>
     <div
       id="off"
-      @click="value = switched(false)"
+      @click="switched(!isActivated)"
       :class="{active: !value}">Off
     </div>
   </div>
@@ -17,8 +17,13 @@
 
 
   export default {
+    data(){
+      return {
+        isActivated: this.value
+      }
+    },
     props: ['value'],
-    methods:{
+    methods: {
       switched(isOn){
         this.$emit('input', isOn);
       }
