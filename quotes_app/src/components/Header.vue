@@ -28,8 +28,8 @@
      quoteCount: {
        type: Number,
        required: true
-     },
-   },
+     }
+   }
  }
 
 </script>

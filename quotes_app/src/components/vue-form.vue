@@ -107,6 +107,7 @@
                v-customOn:mouseleave="mouseLeave"
                v-customOn:click="mouseClick">
           </div>
+          <p></p>
 
         </div>
       </div>
@@ -140,6 +141,15 @@
             <p>Gender: {{gender}}</p>
             <p>Priority: {{selectedPriority}}</p>
             <p>Switched:{{dataSwitch}}</p>
+            <hr>
+            <p><b>{{filterText | to-uppercase | to-lowercase}}</b></p>
+            <hr>
+            <input type="text" v-model="anotherFilter">
+            <ul>
+              <li v-for="fruit in filteredFruits">{{fruit}}</li>
+            </ul>
+
+
           </div>
         </div>
       </div>
@@ -149,12 +159,13 @@
 
 <script type="text/babel">
   import Switch from './Switch.vue';
+  import {fruitMixin} from './fruitMixin';
 
   export default {
     data(){
       return {
         userData: {
-          emal: '',
+          email: '',
           password: '',
           age: '27'
         },
@@ -163,7 +174,8 @@
         gender: 'Male',
         selectedPriority: 'High',
         priorities: ['High', 'Medium', 'Low'],
-        dataSwitch: true
+        dataSwitch: true,
+        filterText: 'Hello there!'
       }
     },
     components: {
@@ -199,8 +211,6 @@
               }
             }, delay);
           }
-
-
         }
       },
       customOn: {
@@ -221,7 +231,14 @@
       mouseClick(){
         console.log('Mouse clicked!');
       }
-    }
+    },
+    filters: {
+      'to-uppercase'(value){
+        return value.toUpperCase();
+      }
+    },
+    mixins:[fruitMixin]
+
   }
 </script>
 
