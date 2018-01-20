@@ -45,6 +45,7 @@
         }
       }
     },
+    
     methods: {
       newQuote(quote){
         if (this.quotes.length >= this.maxQuotes) {
@@ -63,6 +64,7 @@
         });
       }
     },
+
     components: {
       appQuoteGrid: QuoteGrid,
       appNewQuote: NewQuote,
