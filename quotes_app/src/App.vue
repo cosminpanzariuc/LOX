@@ -11,6 +11,16 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label>Username</label>
+      <input class="form-control" type="text" v-model="user.username">
+    </div>
+    <div class="form-group">
+      <label>Mail</label>
+      <input class="form-control" type="text" v-model="user.email">
+    </div>
+    <button class="btn btn-primary" @click="submit">Submit</button>
+
     <basic-form></basic-form>
 
   </div>
@@ -28,7 +38,11 @@
         quotes: [
           'Just a Quote too see something'
         ],
-        maxQuotes: 10
+        maxQuotes: 10,
+        user: {
+          username: '',
+          email: ''
+        }
       }
     },
     methods: {
@@ -40,6 +54,13 @@
       },
       deleteQuote(index){
         this.quotes.splice(index, 1);
+      },
+      submit(){
+        this.$http.post('https://vuejs-http-ca0ba.firebaseio.com/data.json', this.user).then(response=> {
+          console.log(response);
+        }, error => {
+          console.log(error);
+        });
       }
     },
     components: {

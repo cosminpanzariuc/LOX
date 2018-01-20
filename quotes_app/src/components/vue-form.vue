@@ -100,7 +100,7 @@
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <app-switch v-model="dataSwitch"></app-switch>
           <p v-highlight:background.delayed="'red'">Color this with a global custom directive!</p>
-          <p v-local-highlight:background.delayed.blink="{mainColor:'yellow', secondColor:'orange', delay: 500}">Acustom
+          <p v-local-highlight:background.delayed.blink="{mainColor:'yellow', secondColor:'orange', delay: 500}">A custom
             local directive...</p>
           <div style="width:100px;height:100px; background-color: lightgreen"
                v-customOn:mouseenter="mouseEnter"
@@ -215,6 +215,7 @@
       },
       customOn: {
         bind(el, binding){
+
           const type = binding.arg;
           const fn = binding.value;
           el.addEventListener(type, fn);
