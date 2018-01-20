@@ -4,17 +4,17 @@ import App from './App.vue'
 
 Vue.use(VueResource);
 Vue.http.options.root = 'https://vuejs-http-ca0ba.firebaseio.com/data.json';
-Vue.http.interceptors.push((request, next) => {
-    if (request.method == 'POST') {
-        request.method = 'PUT';
-        console.log(request);
-    }
-    next(response => {
-        response.json = () =>{ //not in production!!!
-            return {messages: response.body}
-        }
-    });
-});
+// Vue.http.interceptors.push((request, next) => {
+//     if (request.method == 'POST') {
+//         request.method = 'PUT';
+//         console.log(request);
+//     }
+//     next(response => {
+//         response.json = () =>{ //not in production!!!
+//             return {messages: response.body}
+//         }
+//     });
+// });
 
 
 Vue.directive('highlight', {
