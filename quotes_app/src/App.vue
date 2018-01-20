@@ -20,7 +20,12 @@
       <input class="form-control" type="text" v-model="user.email">
     </div>
     <button class="btn btn-primary" @click="submit">Submit</button>
-    <button class="btn btn-primary" @click="submit">Get Data</button>
+    <button class="btn btn-primary" @click="fetchData">Get Data</button>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="u in users">
+        {{u.username}} - {{u.email}}
+      </li>
+    </ul>
 
     <basic-form></basic-form>
 
@@ -36,14 +41,13 @@
   export default {
     data(){
       return {
-        quotes: [
-          'Just a Quote too see something'
-        ],
+        quotes: ['Just a Quote too see something'],
         maxQuotes: 10,
         user: {
           username: '',
           email: ''
-        }
+        },
+        users: []
       }
     },
 
@@ -58,11 +62,24 @@
         this.quotes.splice(index, 1);
       },
       submit(){
-        this.$http.post('https://vuejs-http-ca0ba.firebaseio.com/data.json', this.user).then(response=> {
+        this.$http.post('', this.user).then(response=> {
           console.log(response);
         }, error => {
           console.log(error);
         });
+      },
+      fetchData(){
+          this.$http.get('').then(response => {
+            console.log(response.json());
+            return response.json();
+          }).then(data =>{
+            console.log(data);
+            const resultArray = [];
+            for (let key in data){
+              resultArray.push(data[key]);
+            }
+            this.users = resultArray;
+          });
       }
     },
 
