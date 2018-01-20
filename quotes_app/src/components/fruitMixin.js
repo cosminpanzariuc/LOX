@@ -1,16 +1,16 @@
 export const fruitMixin = {
-  data(){
-    return {
-      fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-      anotherFilter: ''
-    }
-  },
+    data(){
+        return {
+            fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+            anotherFilter: ''
+        }
+    },
 
-  computed: {
-    filteredFruits(){
-      return this.fruits.filter((element)=> {
-        return element.match(this.anotherFilter);
-      });
+    computed: {
+        filteredFruits(){
+            return this.fruits.filter((element)=> {
+                return element.match(this.anotherFilter);
+            });
+        }
     }
-  }
 };

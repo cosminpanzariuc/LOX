@@ -4,37 +4,48 @@ import App from './App.vue'
 
 Vue.use(VueResource);
 Vue.http.options.root = 'https://vuejs-http-ca0ba.firebaseio.com/data.json';
-
-
-Vue.directive('highlight', {
-  bind(el, binding, vnode){
-    // el.style.backgroundColor = 'green';
-    // el.style.backgroundColor = binding.value;
-
-    let delay = 0;
-    if (binding.modifiers['delayed']) {
-      delay = 1000;
+Vue.http.interceptors.push((request, next) => {
+    if (request.method == 'POST') {
+        request.method = 'PUT';
+        console.log(request);
     }
-
-    setTimeout(() => {
-      if (binding.arg == 'background') {
-        el.style.backgroundColor = binding.value;
-      } else {
-        el.style.color = binding.value;
-      }
-    }, delay);
-  }
+    next(response => {
+        response.json = () =>{ //not in production!!!
+            return {messages: response.body}
+        }
+    });
 });
 
 
-Vue.filter('to-lowercase', (value)=>{
+Vue.directive('highlight', {
+    bind(el, binding, vnode){
+        // el.style.backgroundColor = 'green';
+        // el.style.backgroundColor = binding.value;
+
+        let delay = 0;
+        if (binding.modifiers['delayed']) {
+            delay = 1000;
+        }
+
+        setTimeout(() => {
+            if (binding.arg == 'background') {
+                el.style.backgroundColor = binding.value;
+            } else {
+                el.style.color = binding.value;
+            }
+        }, delay);
+    }
+});
+
+
+Vue.filter('to-lowercase', (value)=> {
     return value.toLowerCase();
 });
 
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+    el: '#app',
+    render: h => h(App)
 })
 
 
