@@ -20,6 +20,7 @@
       <input class="form-control" type="text" v-model="user.email">
     </div>
     <button class="btn btn-primary" @click="submit">Submit</button>
+    <button class="btn btn-primary" @click="submit">Get Data</button>
 
     <basic-form></basic-form>
 
@@ -45,7 +46,7 @@
         }
       }
     },
-    
+
     methods: {
       newQuote(quote){
         if (this.quotes.length >= this.maxQuotes) {
