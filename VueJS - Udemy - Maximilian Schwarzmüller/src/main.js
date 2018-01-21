@@ -1,8 +1,18 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource';
-import App from './App.vue'
+import VueRouter from 'vue-router';
+import App from './App.vue';
+import {routes} from './routes';
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    routes: routes,
+    mode: 'history'
+});
+
+
 Vue.http.options.root = 'https://vuejs-http-ca0ba.firebaseio.com/data.json';
 // Vue.http.interceptors.push((request, next) => {
 //     if (request.method == 'POST') {
@@ -45,6 +55,7 @@ Vue.filter('to-lowercase', (value)=> {
 
 new Vue({
     el: '#app',
+    router: router,
     render: h => h(App)
 })
 

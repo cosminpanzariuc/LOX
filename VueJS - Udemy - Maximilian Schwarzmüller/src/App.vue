@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <head-bar></head-bar>
+        <router-view></router-view>
+        <hr>
         <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
         <app-new-quote @newQuoteAdded="newQuote($event)"></app-new-quote>
         <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote($event)"></app-quote-grid>
@@ -37,6 +40,7 @@
     import NewQuote from './components/NewQuote.vue';
     import Header from './components/Header.vue';
     import basicForm from './components/vue-form.vue';
+    import HeadBar from './components/HeadBar.vue';
 
     export default {
         data(){
@@ -86,7 +90,8 @@
             appQuoteGrid: QuoteGrid,
             appNewQuote: NewQuote,
             appHeader: Header,
-            basicForm: basicForm
+            basicForm: basicForm,
+            headBar: HeadBar
         }
     }
 </script>
