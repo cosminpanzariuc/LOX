@@ -53,6 +53,12 @@ Vue.filter('to-lowercase', (value)=> {
 });
 
 
+router.beforeEach((to, from, next) =>{
+    console.log('Global beforeEach');
+    next();
+});
+
+
 new Vue({
     el: '#app',
     router: router,

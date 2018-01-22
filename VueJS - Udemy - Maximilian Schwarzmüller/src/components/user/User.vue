@@ -2,7 +2,7 @@
     <div>
         <h1>The User Page</h1>
         <p>Loaded ID: {{id}}</p>
-        <button class="btn btn-primary" @click="navigateToHome"> Go to Home</button>
+        <button class="btn btn-danger" @click="navigateToHome"> Go to Home</button>
         <hr>
         <router-view></router-view>
     </div>

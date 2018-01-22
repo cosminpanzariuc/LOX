@@ -19,7 +19,6 @@
 
 
 <script>
-
     export default{
         props: {
             maxQuotes: {
@@ -32,7 +31,6 @@
             }
         }
     }
-
 </script>
 
 

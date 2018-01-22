@@ -5,11 +5,21 @@
         <router-link
             tag="button"
             :to="{name: 'userEdit', params: { id: $route.params.id}, query: {locale: 'en', q: 100}}"
-            class="btn btn-primary">Edit User
+            class="btn btn-default">Edit User
         </router-link>
 
     </div>
 </template>
+
+
+<script>
+    export default {
+        beforeRouteEnter(to, from, next){
+            console.log('from component itself');
+            next();
+        }
+    }
+</script>
 
 
 <!--:to="'/user/' + $route.params.id + '/edit'"-->
