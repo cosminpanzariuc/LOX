@@ -6,8 +6,8 @@
 </template>
 
 <script type="text/babel">
-    import {mapGetters} from 'vuex';
     import Stock from './Stock.vue';
+    import {mapGetters} from 'vuex';
 
 
     export default{
