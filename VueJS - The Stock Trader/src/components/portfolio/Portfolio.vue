@@ -1,6 +1,7 @@
 <template>
     <div>
-        <app-stock v-for="stock in stocks" :stock="stock"></app-stock>
+        <h4 v-if="stocks.length < 1">There are no stocks in here yet...</h4>
+        <app-stock v-else v-for="stock in stocks" :stock="stock"></app-stock>
     </div>
 </template>
 
