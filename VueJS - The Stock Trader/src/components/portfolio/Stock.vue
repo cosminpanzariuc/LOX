@@ -52,6 +52,7 @@
                     quantity: this.quantity
                 };
                 this.placeSellOrder(order);
+//                this.$store.dispatch('sellStock', order);
                 this.quantity = 0;
             }
         }
