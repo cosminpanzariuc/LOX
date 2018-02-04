@@ -5,9 +5,7 @@ import VueRouter from 'vue-router';
 import {routes} from './routes';
 import store from './store/store';
 
-
 Vue.use(VueRouter);
-
 
 var router = new VueRouter({
     mode: 'history',
