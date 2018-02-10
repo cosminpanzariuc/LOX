@@ -1,15 +1,15 @@
 const state = {
     funds: 10000,
-    stocks: []
+    prtfolioStocks: []
 };
 
 const mutations = {
     'BUY_STOCK'(state, order){
-        const record = state.stocks.find(element => element.id == order.stockId);
+        const record = state.prtfolioStocks.find(element => element.id == order.stockId);
         if (record) {
             record.quantity += order.quantity;
         } else {
-            state.stocks.push({
+            state.prtfolioStocks.push({
                 id: order.stockId,
                 quantity: order.quantity
             });
@@ -18,26 +18,27 @@ const mutations = {
     },
 
     'SELL_STOCK'(state, order){
-        const record = state.stocks.find(element => element.id == order.stockId);
+        const record = state.prtfolioStocks.find(element => element.id == order.stockId);
         if (record.quantity > order.quantity) {
             record.quantity -= order.quantity;
         } else {
-            state.stocks.splice(state.stocks.indexOf(record), 1);
+            state.prtfolioStocks.splice(state.prtfolioStocks.indexOf(record), 1);
         }
         state.funds += order.stockPrice * order.quantity;
     }
 };
 
 const actions = {
-    sellStock: (context, order) => {
+    sellStockAction: (context, order) => {
+        console.log('Sell order:', order);
         context.commit('SELL_STOCK', order);
     }
 };
 
 const getters = {
     stockPortfolio(state, getters){
-        return state.stocks.map(stock => {
-            console.log(getters);
+        return state.prtfolioStocks.map(stock => {
+            console.log('Global getters:', getters);
             const record = getters.stocks.find(element => element.id == stock.id);
             return {
                 id: stock.id,

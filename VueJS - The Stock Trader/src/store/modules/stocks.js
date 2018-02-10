@@ -14,11 +14,12 @@ const mutations = {
 };
 
 const actions = {
-    buyStock: (context, order) => { //in portfolio module
-        context.commit('BUY_STOCK', order);
-    },
-    initStocks: (context) => {
+    initStocksAction: (context) => {
         context.commit('SET_STOCKS', fullStocks);
+    },
+    buyStockAction: (context, order) => {
+        console.log('Buy order:', order);
+        context.commit('BUY_STOCK', order); //mutation in portfolio module
     },
     randomizeStocks: (context) => {
         context.commit('RND_STOCKS');

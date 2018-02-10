@@ -6,7 +6,6 @@
                 <router-view></router-view>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -17,9 +16,8 @@
         components: {
             appHeader: Header
         },
-
         created(){
-            this.$store.dispatch('initStocks');
+            this.$store.dispatch('initStocksAction');
         }
     }
 </script>

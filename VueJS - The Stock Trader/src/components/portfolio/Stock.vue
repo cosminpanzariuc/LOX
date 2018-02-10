@@ -43,7 +43,7 @@
         },
         methods: {
             ...mapActions({
-                placeSellOrder: 'sellStock'
+                placeSellOrder: 'sellStockAction'
             }),
             sellStock(){
                 const order = {
@@ -52,7 +52,7 @@
                     quantity: this.quantity
                 };
                 this.placeSellOrder(order);
-//                this.$store.dispatch('sellStock', order);
+//                this.$store.dispatch('sellStockAction', order);
                 this.quantity = 0;
             }
         }
