@@ -4,7 +4,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">
                     {{stock.name}}
-                    <small>(Price: {{stock.price}} | Quantity: {{stock.quantity}})</small>
+                    <small>(Price: {{stock.price | currency}} | Quantity: {{stock.quantity}})</small>
                 </h3>
             </div>
 
@@ -14,15 +14,16 @@
                             type="number"
                             class="form-control"
                             placeholder="Quantity"
-                            v-model.number="quantity">
+                            v-model.number="quantity"
+                            :class="{danger: insuficientQuantity}">
                 </div>
 
                 <div class="pull-right">
                     <button
                             class="btn btn-info"
                             @click="sellStock"
-                            :disabled="quantity <= 0 || !Number.isInteger(quantity)">
-                        Sell
+                            :disabled="insuficientQuantity || quantity <= 0 || !Number.isInteger(quantity)">
+                        {{insuficientQuantity ? 'Not enaugh Stocks' : 'Sell'}}
                     </button>
                 </div>
             </div>
@@ -39,6 +40,11 @@
         data(){
             return {
                 quantity: 0
+            }
+        },
+        computed: {
+            insuficientQuantity(){
+                return this.quantity > this.stock.quantity;
             }
         },
         methods: {
@@ -61,3 +67,12 @@
 </script>
 
 
+<style scoped>
+    .pull-left {
+        width: 50%;
+    }
+
+    .danger {
+        border: 1px solid red;
+    }
+</style>
