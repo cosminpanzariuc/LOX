@@ -30,8 +30,8 @@
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#">Save Data</a></li>
-                            <li><a href="#">Load Data</a></li>
+                            <li><a href="#" @click="saveData">Save Data</a></li>
+                            <li><a href="#" @click="loadData">Load Data</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -47,7 +47,7 @@
 
     export default{
         data() {
-            return{
+            return {
                 isDropDownOpen: false
             }
         },
@@ -58,10 +58,22 @@
         },
         methods: {
             ...mapActions([
-                'randomizeStocks'
+                'randomizeStocks',
+                'fetchDataAction'
             ]),
             endDay(){
                 this.randomizeStocks();
+            },
+            saveData(){
+                const dataToSave = {
+                    funds: this.funds,
+                    stockPortfolio: this.$store.getters.stockPortfolio,
+                    stocks: this.$store.getters.stocks
+                };
+                this.$http.put('data.json', dataToSave);
+            },
+            loadData(){
+                this.fetchDataAction();
             }
         }
     }
