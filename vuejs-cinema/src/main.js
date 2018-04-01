@@ -36,6 +36,7 @@ new Vue({
     created(){
         this.$http.get('/api').then(response =>{
             this.movies = response.data;
+            console.log(this.movies);
         })
     }
 });

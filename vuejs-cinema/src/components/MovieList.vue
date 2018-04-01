@@ -9,12 +9,11 @@
         <div v-else class="no-results">
             Loading...
         </div>
-
     </div>
 </template>
 
 <script type="text/babel">
-    import genres from '../util/genres';
+//    import genres from '../util/genres';
     import MovieItem from './MovieItem.vue';
 
     export default{
@@ -24,7 +23,7 @@
                 if (!this.genre.length) {
                     return true;
                 } else {
-                    let movieGenres = movie.movie.Genre.split(',');
+                    let movieGenres = movie.movie.Genre.split(', ');
                     let matched = true;
                     this.genre.forEach(genre => {
                         if(movieGenres.indexOf(genre) === -1){
