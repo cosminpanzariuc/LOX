@@ -2,10 +2,7 @@
     <div id="movie-filter">
         <h2>Filter results</h2>
         <div class="filter-group">
-            <check-filter v-for="genre in genres"
-                          :title="genre"
-                          :key="genre"
-                          @check-filter="checkFilter"></check-filter>
+            <check-filter v-for="genre in genres" :title="genre" :key="genre" @check-filter="checkFilter"></check-filter>
         </div>
     </div>
 </template>
