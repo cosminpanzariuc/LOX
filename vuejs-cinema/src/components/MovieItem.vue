@@ -8,12 +8,29 @@
                 <h2>{{movie.Title}}</h2>
                 <span class="movie-rating">{{movie.Rated}}</span>
             </div>
+            <div class="movie-sessions">
+                <div v-for="session in filteredSessions(sessions)" class="session-time-wrapper">
+                    <div class="session-time">
+                        {{formatSessionTime(session.time)}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
-<script>
+<script type="text/babel">
+    import times from '../util/times';
+
     export default{
-        props:['movie']
+        props: ['movie', 'sessions', 'day', 'time', 'sessionPassesGenreFilter'],
+        methods: {
+            formatSessionTime(raw){
+                return this.$moment(raw).format('h:mm A');
+            },
+            filteredSessions(sessions){
+                return sessions.filter(this.sessionPassesGenreFilter);
+            }
+        }
     }
 </script>
