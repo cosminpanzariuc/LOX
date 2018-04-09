@@ -7,10 +7,10 @@
 
             <movie-item v-for="movie in filteredMovies" :movie="movie.movie">
                 <div class="movie-sessions">
-                    <div v-for="session in filteredSessions(movie.sessions)" class="session-time-wrapper">
-                        <div class="session-time">
-                            {{formatSessionTime(session.time)}}
-                        </div>
+                    <div v-for="session in filteredSessions(movie.sessions)"
+                         v-tooltip="{seats: session.seats}"
+                         class="session-time-wrapper tooltip-wrapper">
+                            <div class="session-time">{{formatSessionTime(session.time)}}</div>
                     </div>
                 </div>
             </movie-item>

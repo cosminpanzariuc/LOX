@@ -30,6 +30,11 @@ Object.defineProperty(Vue.prototype, '$bus', {
         return this.$root.bus;
     }
 });
+
+
+import Tooltip from './util/tooltip';
+Vue.use(Tooltip);
+
 new Vue({
     el: '#app',
     data(){
@@ -45,10 +50,10 @@ new Vue({
     created(){
         this.$http.get('/api').then(response => {
             this.movies = response.data;
-            console.log('Movies:', this.movies);
         });
         this.$bus.$on('check-filter', checkFilter.bind(this));
         this.$bus.$on('set-day', setDay.bind(this));
     },
     router
 });
+
