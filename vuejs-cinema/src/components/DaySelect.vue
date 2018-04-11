@@ -1,7 +1,7 @@
 <template>
     <div id="day-select">
         <ul class="days">
-            <li :class="{day: true, active: isActive(day)}" v-for="day in days" @click="selectDay(day)">
+            <li v-for="day in days" @click="selectDay(day)" :class="{day: true, active: isActive(day)}">
                 {{formatDay(day)}}
             </li>
         </ul>
