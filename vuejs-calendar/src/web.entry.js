@@ -2,8 +2,8 @@ Vue.config.productionTip = false;
 import Vue from 'vue';
 import './style.scss';
 
-import Vuex from 'vuex';
-Vue.use(Vuex);
+import store from './store/index'
+
 
 import App from './components/App.vue';
 
@@ -23,10 +23,5 @@ new Vue({
     components:{
         App
     },
-    store:{
-        state:{
-            currentYear: 2018,
-            currentMonth: 4
-        }
-    }
+    store
 });
