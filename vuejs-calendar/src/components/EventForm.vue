@@ -12,7 +12,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/babel">
     export default{
         data(){
             return{
@@ -25,9 +25,11 @@
             },
             create(){
                 if(this.description.length){
-                    this.$store.commit('addEvent', this.description);
-                    this.description = '';
-                    this.$store.commit('eventFormActive', false);
+                    this.$store.dispatch('addEventAction', this.description).then(returnedPromise => {
+                        this.description = '';
+                        this.$store.commit('eventFormActive', false);
+                    });
+
                 }
             }
         },

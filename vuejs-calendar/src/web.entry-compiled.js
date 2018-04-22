@@ -1,34 +1,36 @@
 Vue.config.productionTip = false;
 import Vue from 'vue';
 import './style.scss';
-import store from './store/index'
+import store from './store/index';
 import App from './components/App.vue';
 import moment from 'moment-timezone';
 
 moment.tz.setDefault('UTC');
 Object.defineProperty(Vue.prototype, '$moment', {
-    get(){
+    get() {
         return this.$root.moment;
     }
 });
 
 let events = window.__INITIAL_STATE__.map(event => {
-    return{
+    return {
         description: event.description,
         date: moment(event.date)
-    }
+    };
 });
 
-let initialState = Object.assign({}, store.state, {events});
+let initialState = Object.assign({}, store.state, { events });
 store.replaceState(initialState);
 
 new Vue({
-  el: '#app',
-    data:{
+    el: '#app',
+    data: {
         moment
     },
-    components:{
+    components: {
         App
     },
     store
 });
+
+//# sourceMappingURL=web.entry-compiled.js.map

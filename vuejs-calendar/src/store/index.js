@@ -5,6 +5,8 @@ Vue.use(Vuex);
 import moment from 'moment-timezone';
 moment.tz.setDefault('UTC');
 
+import Axios from 'axios';
+
 export default new Vuex.Store({
     state: {
         currentYear: 2018,
@@ -12,11 +14,7 @@ export default new Vuex.Store({
         eventFormPosX: 0,
         eventFormPosY: 0,
         eventFormActive: false,
-        events: [
-            {description: 'Random Event 1', date: moment('2018-04-18', 'YYYY-MM-DD')},
-            {description: 'Random Event 2', date: moment('2018-04-22', 'YYYY-MM-DD')},
-            {description: 'Random Event 3', date: moment('2018-04-02', 'YYYY-MM-DD')}
-        ],
+        events: [],
         eventFormDate: moment()
     },
     mutations: {
@@ -34,13 +32,28 @@ export default new Vuex.Store({
             state.eventFormActive = payload;
         },
         addEvent(state, payload){
-            state.events.push({
-                description: payload,
-                date:state.eventFormDate
-            });
+            state.events.push(payload);
         },
         eventFormGetDate(state, payload){
             state.eventFormDate = payload;
+        }
+    },
+    actions:{
+        addEventAction(context, payload){
+            return new Promise((resolve, reject) => {
+                let obj = {
+                    description: payload,
+                    date: context.state.eventFormDate
+                };
+                Axios.post('/add_event', obj).then(response => {
+                    if(response.status === 200){
+                        context.commit('addEvent', obj);
+                        resolve();
+                    }else{
+                        reject();
+                    }
+                });
+            });
         }
     }
 });

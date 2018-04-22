@@ -11,25 +11,18 @@ const serialize = require('serialize-javascript');
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-
-let events = [
-    {description: 'Random Event 1', date: moment('2018-04-18', 'YYYY-MM-DD')},
-    {description: 'Random Event 2', date: moment('2018-04-22', 'YYYY-MM-DD')},
-    {description: 'Random Event 3', date: moment('2018-04-02', 'YYYY-MM-DD')}
-];
+let events = [{ description: 'Random Event 1', date: moment('2018-04-18', 'YYYY-MM-DD') }, { description: 'Random Event 2', date: moment('2018-04-22', 'YYYY-MM-DD') }, { description: 'Random Event 3', date: moment('2018-04-02', 'YYYY-MM-DD') }];
 
 app.get('/', (req, res) => {
   let template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
-    let contentMarker = '<!--APP-->';
+  let contentMarker = '<!--APP-->';
   res.send(template.replace(contentMarker, `<script>var __INITIAL_STATE__=${serialize(events)}</script>`));
-
 });
-
 
 app.use(require('body-parser').json());
 app.post('/add_event', (req, res) => {
-    events.push(req.body);
-    res.sendStatus(200);
+  events.push(req.body);
+  res.sendStatus(200);
 });
 
 const server = http.createServer(app);
@@ -46,3 +39,5 @@ server.listen(process.env.PORT, function () {
     require("open")(`http://localhost:${process.env.PORT}`);
   }
 });
+
+//# sourceMappingURL=server-compiled.js.map
