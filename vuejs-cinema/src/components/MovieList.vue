@@ -54,7 +54,7 @@
             sessionPassesTimeFilter(session){
                 if (!this.day.isSame(this.$moment(session.time), 'day')) {
                     return false;
-                } else if (this.time.length === 0 || this.time.length === times.length) {
+                } else if (this.time.length === 0 || this.time.length === 2) {
                     return true;
                 } else if (this.time[0] === times.AFTER_6PM) {
                     return this.$moment(session.time).hour() >= 18;
