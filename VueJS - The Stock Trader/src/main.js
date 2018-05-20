@@ -1,13 +1,15 @@
 Vue.config.productionTip = false;
 import Vue from 'vue'
 import App from './App.vue'
+
 import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+
 import VueResource from 'vue-resource';
+Vue.use(VueResource);
+
 import {routes} from './routes';
 import store from './store/store';
-
-Vue.use(VueRouter);
-Vue.use(VueResource);
 
 
 var router = new VueRouter({
