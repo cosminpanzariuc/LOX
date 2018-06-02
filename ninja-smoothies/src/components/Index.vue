@@ -15,7 +15,7 @@
 </template>
 
 <script type="text/babel">
-  import db from '@/firebase/init'
+  import db from '@/firebase/init';
 
   export default {
     name: 'Index',
