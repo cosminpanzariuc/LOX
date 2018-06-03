@@ -9,7 +9,7 @@
 
       <div v-for="(ing, index) in smoothie.ingredients" :key="index" class="field">
         <label for="ingredient">Ingredients:</label>
-        <input type="text" name="ingredient" v-model="smoothie.ingredients[index]">
+        <input type="text" name="ingredient" v-model="smoothie.ingredients[index]" required>
         <i class="material-icons delete" @click="deleteIng(ing)">delete</i>
       </div>
 
