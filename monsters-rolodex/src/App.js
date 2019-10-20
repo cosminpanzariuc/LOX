@@ -24,6 +24,7 @@ class App extends React.Component {
             monster.name.toLowerCase().includes(searchField.toLowerCase()));
         return (
             <div className="App">
+                <h1>Monster Rolodex</h1>
                 <SearchBox
                     placeholder="Search monsters..."
                     handleChange={this.handlechange}
