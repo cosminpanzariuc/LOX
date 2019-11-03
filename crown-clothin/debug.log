@@ -1,0 +1,2 @@
+[1026/002206.477:ERROR:process_info.cc(359)] UncheckedAllocate
+[1026/002217.401:ERROR:file_io.cc(134)] WriteFile: The pipe is being closed. (0xE8)
